@@ -6,9 +6,6 @@ $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม 
 $this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม dental รายบุคคล';
 
 use yii\helpers\Html;
-use kartik\detail\DetailView;
-use kartik\grid\GridView;
-
 ?>
 
 

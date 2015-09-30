@@ -35,12 +35,6 @@ class DentalController extends Controller {
         $data = Yii::$app->db2->createCommand($sql)->queryAll();
         $dataProvider = new ArrayDataProvider([
             'allModels'=>$data,
-            'pagination' => [
-                'pageSize' => 10,
-            ],
-            'sort'=>[
-                'attributes'=>['hn','vn','cid','full_name','vstdate']
-            ],
         ]);
 
         return $this->render('index', ['dataProvider' => $dataProvider, 'date1' => $date1, 'date2' => $date2]);
@@ -114,10 +108,6 @@ class DentalController extends Controller {
         order by v.vstdate";
                
         $data = Yii::$app->db2->createCommand($sql)->queryAll();
-//        $dataProvider = new ArrayDataProvider([
-//            'allModels'=>$data,
-//        ]);
-
         return $this->render('view', ['data_view' => $data]);
 
     }

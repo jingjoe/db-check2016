@@ -41,12 +41,12 @@ use yii\helpers\Html;
                 <div class="box-body no-padding">
                     <ul class="nav nav-pills nav-stacked">
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> SERVICE <span class="label label-danger pull-right"> 14 </span>', ['service/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> DIAGNOSIS-OPD  <span class="label label-danger pull-right"> 15 </span>', ['diagnosisopd/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> DIAGNOSIS-OPD  <span class="label label-success pull-right"> 15 </span>', ['diagnosisopd/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> DRUG-OPD <span class="label label-danger pull-right"> 16 </span>', ['drugopd/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PROCEDURE-OPD <span class="label label-danger pull-right"> 17 </span>', ['procedure/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PROCEDURE-OPD <span class="label label-success pull-right"> 17 </span>', ['procedureopd/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CHARGE-OPD <span class="label label-danger pull-right"> 18 </span>', ['chargeopd/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> SURVEILLANCE <span class="label label-danger pull-right"> 19 </span>', ['surveillance/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> ACCIDENT <span class="label label-danger pull-right"> 20 </span>', ['accident/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> ACCIDENT <span class="label label-success pull-right"> 20 </span>', ['accident/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CHRONICFU <span class="label label-danger pull-right"> 21 </span>', ['chronicfu/index'], ['class' => 'list-group-item']); ?> 
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> LABFU <span class="label label-danger pull-right"> 22 </span>', ['labfu/index'], ['class' => 'list-group-item']); ?> 
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> ADMISSION <span class="label label-danger pull-right"> 23 </span>', ['admission/index'], ['class' => 'list-group-item']); ?>
@@ -99,7 +99,7 @@ use yii\helpers\Html;
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PROCEDURE-REFER <span class="label label-danger pull-right"> 48 </span>', ['procedurerefer/index'], ['class' => 'list-group-item']); ?> 
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> REFER-HISTORY <span class="label label-danger pull-right"> 49 </span>', ['referhistory/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> REFER-RESULT <span class="label label-danger pull-right"> 50 </span>', ['referredult/index'], ['class' => 'list-group-item']); ?> 
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> STUDENT <span class="label label-danger pull-right"> 51 </span>', ['student/index'], ['class' => 'list-group-item']); ?> 
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> STUDENT <span class="label label-success pull-right"> 51 </span>', ['student/index'], ['class' => 'list-group-item']); ?> 
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CANCER <span class="label label-danger pull-right"> 52 </span>', ['cancer/index'], ['class' => 'list-group-item']); ?>
                     </ul>
                 </div>
@@ -108,7 +108,7 @@ use yii\helpers\Html;
 
     </div><!-- /.row -->
 </section>
-
+<br>
 
 
 
