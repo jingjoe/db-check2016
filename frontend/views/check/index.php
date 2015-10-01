@@ -8,6 +8,9 @@ use yii\helpers\Html;
     <h4>โครงสร้างมาตรฐานข้อมูลด้านสุขภาพกระทรวงสาธารณสุข 43 แฟ้ม</h4>
     <h6><p>อ้างอิง คู่มือการปฏิบัติงานการจัดเก็บและจัดส่งข้อมูลตามโครงสร้างมาตรฐานข้อมูลด้านสุขภาพกระทรวงสาธารณสุข Version 2.0 (1 ตุลาคม 2557)ปีงบประมาณ 2558</p></h6>
 </div>
+<div class="panel panel-warning">
+    <div class="panel-heading"><h3 class="panel-title">โครงสร้างมาตรฐานข้อมูล 43/50 แฟ้ม</h3></div>
+    <div class="panel-body">
 <section class="content">
     <div class="row">
         <!-- /.col1 -->
@@ -108,7 +111,9 @@ use yii\helpers\Html;
 
     </div><!-- /.row -->
 </section>
-<br>
+    </div>
+</div>
+
 
 
 

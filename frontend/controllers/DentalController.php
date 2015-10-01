@@ -41,24 +41,7 @@ class DentalController extends Controller {
     }
     
     public function actionView($id=NULL ,$date1 = NULL, $date2 = NULL) {
-
-        if (!empty($id)) {
-            $vn = $id;
-        } else {
-            $vn = '';
-        }
-        if (!empty($date1)) {
-            $d1 = $date1;
-        } else {
-            $d1 = '';
-        }
-        if (!empty($date2)) {
-            $d2 = $date2;
-        } else {
-            $d2 = '';
-        }
         
-
         $sql = "select pt.hn,concat(pt.pname,pt.fname,' ',pt.lname) as full_name 
         ,'11347' as hospcode
         ,pt.cid as pid
@@ -100,8 +83,8 @@ class DentalController extends Controller {
         inner join vn_stat v on v.vn=dc.vn
         inner join ovst_seq os on os.vn=v.vn 
         inner join patient pt on pt.hn=v.hn
-        where dc.vn in (select vn from dtmain where vstdate  between '$d1' and '$d2' ) 
-        and dc.vn='$vn'
+        where dc.vn in (select vn from dtmain where vstdate  between '$date1' and '$date2' ) 
+        and dc.vn='$id'
         and (dc.dental_care_type_id is null  or dc.dental_care_type_id= ''
         OR dc.dental_care_service_place_type_id is null or dc.dental_care_service_place_type_id= '' 
         OR dc.entry_datetime is null or dc.entry_datetime='')

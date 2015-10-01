@@ -9,9 +9,8 @@ use yii\helpers\Html;
 
 ?>
 
-
 <?php foreach ($data_view as $chk) { ?>
-<?php } ?>   
+<?php } ?>  
 
 <div class="alert alert-primary">
     <h3 class="box-title"> 
@@ -159,6 +158,7 @@ use yii\helpers\Html;
         </div>                           
     </div><!-- box-footer -->
 </div><!-- /.box -->            
+
 
 
 

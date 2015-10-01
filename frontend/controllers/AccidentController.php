@@ -50,22 +50,6 @@ class AccidentController extends Controller {
      
     public function actionView($id=NULL ,$date1 = NULL, $date2 = NULL) {
         
-        if (!empty($id)) {
-            $vn = $id;
-        } else {
-            $vn = '';
-        }
-        if (!empty($date1)) {
-            $d1 = $date1;
-        } else {
-            $d1 = '';
-        }
-        if (!empty($date2)) {
-            $d2 = $date2;
-        } else {
-            $d2 = '';
-        }
-        
         $sql = "select CONCAT(p.pname,p.fname,' ',p.lname) AS full_name
         ,e.enter_er_time
         ,o.hn
@@ -99,8 +83,8 @@ class AccidentController extends Controller {
         inner join patient p on p.hn=o.hn  
         inner join pq_screen  pq on pq.vn=en.vn 
         inner join opduser ou on ou.loginname=pq.staff 
-        where e.vstdate between '$d1'  and '$d2'
-        and en.vn= '$vn'
+        where e.vstdate between '$date1'  and '$date2'
+        and en.vn= '$id'
         and (en.accident_place_type_id='' or en.accident_place_type_id is null  
         or en.visit_type='' or en.visit_type is null  
         or en.accident_alcohol_type_id='' or en.accident_alcohol_type_id is null 

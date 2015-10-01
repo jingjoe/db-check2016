@@ -45,12 +45,6 @@ class StudentController extends Controller {
      
     public function actionView($id=NULL) {
         
-        if (!empty($id)) {
-            $pid = $id;
-        } else {
-            $pid = '';
-        }
-       
         $sql = "select (SELECT hospitalcode FROM opdconfig) AS hospcode,
         a.person_id  as pid,
         CONCAT(p.pname,p.fname,' ',p.lname) AS full_name,
@@ -71,7 +65,7 @@ class StudentController extends Controller {
         left outer join village_school_class vc on vc.village_school_class_id = a.village_school_class_id
         left outer join village_school_room vr on vr.village_school_room_id = a.village_school_room_id
         left outer join village ve on ve.village_id=vs.village_id
-        where a.person_id ='$pid' and (a.discharge<>'Y' or a.discharge is null)
+        where a.person_id ='$id' and (a.discharge<>'Y' or a.discharge is null)
         and (a.person_id='' or a.person_id is null  
         or ve.address_id='' or ve.address_id is null  
         or a.village_school_id='' or a.village_school_id is null 

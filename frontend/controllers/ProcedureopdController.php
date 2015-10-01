@@ -44,22 +44,6 @@ class ProcedureopdController extends Controller {
      
     public function actionView($id=NULL ,$date1 = NULL, $date2 = NULL) {
         
-        if (!empty($id)) {
-            $seq = $id;
-        } else {
-            $seq = '';
-        }
-        if (!empty($date1)) {
-            $d1 = $date1;
-        } else {
-            $d1 = '';
-        }
-        if (!empty($date2)) {
-            $d2 = $date2;
-        } else {
-            $d2 = '';
-        }
-        
         $sql = "SELECT concat(pt.pname,pt.fname,' ',pt.lname) as full_name,v.hn
         ,(SELECT hospitalcode FROM opdconfig) AS hospcode
         ,v.cid AS pid
@@ -75,8 +59,8 @@ class ProcedureopdController extends Controller {
         INNER JOIN ovst_seq o ON o.vn=v.vn
         INNER JOIN doctor d ON d.code=v.dx_doctor
         INNER JOIN spclty s ON s.spclty=v.spclty
-        WHERE o.seq_id='$seq'
-        and v.vstdate BETWEEN '$d1' AND '$d2'
+        WHERE o.seq_id='$id'
+        and v.vstdate BETWEEN '$date1' AND '$date2'
         and (v.cid='' or v.cid is null  
         or o.seq_id='' or o.seq_id is null  
         or v.vstdate='' or v.vstdate is null 
@@ -84,7 +68,7 @@ class ProcedureopdController extends Controller {
         or v.op0='' or v.op0 is null
         or o.update_datetime='' or o.update_datetime is null)";
         
-       $data = Yii::$app->db2->createCommand($sql)->queryAll();
+        $data = Yii::$app->db2->createCommand($sql)->queryAll();
         return $this->render('view', ['data_view' => $data]);
     }
 }

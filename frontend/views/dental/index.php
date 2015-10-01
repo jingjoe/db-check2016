@@ -66,7 +66,7 @@ echo GridView::widget([
     'panel' => [
         'type' => GridView::TYPE_SUCCESS,
         //'before' => Html::a('<i class="glyphicon glyphicon-repeat"></i> Reload', ['/dental/index'], ['class' => 'btn btn-info']),
-        'after' => 'วันที่ประมวลผล '.date('Y-m-d H:i:s').' น.',
+        //'after' => 'วันที่ประมวลผล '.date('Y-m-d H:i:s').' น.',
         'type' => 'success',   
     ],
     'responsive' => true,

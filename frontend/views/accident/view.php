@@ -2,7 +2,7 @@
 <?php
 $this->title = Yii::t('app', 'ตรวจสอบแฟ้ม accident รายบุคคล');
 $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ43แฟ้ม', 'url' => ['check/index']];
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม dental', 'url' => ['accident/index']];
+$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม accident', 'url' => ['accident/index']];
 $this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม accident รายบุคคล';
 
 use yii\helpers\Html;

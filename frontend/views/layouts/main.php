@@ -30,7 +30,8 @@ material\MaterialAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'HOSPITAL-MIS',
+        //'brandLabel' => 'HOSPITAL-MIS',
+        'brandLabel' => Html::img('@web/images/logo.png', ['alt'=>Yii::$app->name]),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -69,9 +70,8 @@ material\MaterialAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-left">&copy; Kohyao Chaipat Hospital <?= date('Y') ?></p>
+        <p class="pull-right">Powered by <?= Html::a('Wichian Nunsri', ['site/about']) ?></p>
     </div>
 </footer>
 
