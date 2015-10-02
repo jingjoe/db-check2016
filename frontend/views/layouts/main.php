@@ -22,40 +22,65 @@ material\MaterialAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <?php $this->head() ?>
 </head>
 <body>
+<!-- <div class="hosmis"></div>-->
 <?php $this->beginBody() ?>
 
 <div class="wrap">
     <?php
     NavBar::begin([
-        //'brandLabel' => 'HOSPITAL-MIS',
-        'brandLabel' => Html::img('@web/images/logo.png', ['alt'=>Yii::$app->name]),
+        'brandLabel' => 'HOSPITAL-MIS',
+        //'brandLabel' => Html::img('@web/images/logo.png', ['alt'=>Yii::$app->name]),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-fixed-top navbar-custom',
         ],
     ]);
-    $menuItems = [
-        ['label' => 'หน้าหลัก', 'url' => ['/site/index']],
-        ['label' => 'ตรวจสอบ 43 แฟ้ม', 'url' => ['/check/index']],
-        ['label' => 'ตรวจสอบ QOF', 'url' => ['/qof/index']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'สมาชิก', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'เข้าสู่ระบบ', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = [
-            'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-            'url' => ['/site/logout'],
-            'linkOptions' => ['data-method' => 'post']
-        ];
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
+    
+          if (Yii::$app->user->isGuest) {
+                $submenuItems[] = ['label' => 'สมัครผู้ใช้', 'url' => ['/site/signup']];
+                $submenuItems[] = ['label' => 'เข้าสู่ระบบ', 'url' => ['/site/login']];
+            } else {
+
+                $submenuItems[] = [
+                    'label' => 'ออกจากระบบ',
+                    'url' => ['/site/logout'],
+                    'linkOptions' => ['data-method' => 'post']
+                ];
+            }
+            
+           $username = '';
+            if (!Yii::$app->user->isGuest) {
+                $username = '(' . Html::encode(Yii::$app->user->identity->username) . ')';
+            }
+
+
+            $menuItems = [
+                ['label' => 
+                    '<span class="glyphicon glyphicon-home"></span> หน้าหลัก',
+                    'url' => ['/site/index']
+                ],
+                ['label' =>
+                    '<span class="glyphicon glyphicon-check"></span> ตรวจสอบ 43 แฟ้ม',
+                    'url' => ['check/index']
+                ],
+                ['label' =>
+                    '<span class="glyphicon glyphicon-check"></span> ตรวจสอบ QOF',
+                    'url' => ['qof/index']
+                ],
+                ['label' => '<span class="glyphicon glyphicon-user"></span> ผู้ใช้งาน ' . $username,
+                    'items' => $submenuItems
+                ],
+            ];      
+            
+          echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-right'],
+                'encodeLabels' => false,
+                'items' => $menuItems,
+            ]);
     NavBar::end();
     ?>
 

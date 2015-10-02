@@ -19,7 +19,7 @@ use yii\helpers\Html;
                 <div class="box-header with-border"></div>
                 <div class="box-body no-padding">
                     <ul class="nav nav-pills nav-stacked">
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PERSON <span class="label label-danger pull-right"> 1 </span>', ['person/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PERSON <span class="label label-success pull-right"> 1 </span>', ['person/main'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> ADDRESS <span class="label label-danger pull-right"> 2 </span>', ['address/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> DEATH <span class="label label-danger pull-right"> 3 </span>', ['death/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CHRONIC <span class="label label-danger pull-right"> 4 </span>', ['chronic/index'], ['class' => 'list-group-item']); ?>
