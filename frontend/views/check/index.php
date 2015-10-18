@@ -6,7 +6,7 @@ use yii\helpers\Html;
 ?>
 <div class="alert alert-primary">
     <h4>โครงสร้างมาตรฐานข้อมูลด้านสุขภาพกระทรวงสาธารณสุข 43 แฟ้ม</h4>
-    <h6><p>อ้างอิง คู่มือการปฏิบัติงานการจัดเก็บและจัดส่งข้อมูลตามโครงสร้างมาตรฐานข้อมูลด้านสุขภาพกระทรวงสาธารณสุข Version 2.0 (1 ตุลาคม 2557)ปีงบประมาณ 2558</p></h6>
+    <h6><p><font color="#FFFFFF">อ้างอิงจากคู่มือการปฏิบัติงานการจัดเก็บและจัดส่งข้อมูลตามโครงสร้างมาตรฐานข้อมูลด้านสุขภาพกระทรวงสาธารณสุข Version 2.0 (1 ตุลาคม 2557)ปีงบประมาณ 2558</font></p></h6>
 </div>
 <div class="panel panel-warning">
     <div class="panel-heading"><h3 class="panel-title">โครงสร้างมาตรฐานข้อมูล 43/50 แฟ้ม</h3></div>
@@ -21,7 +21,7 @@ use yii\helpers\Html;
                     <ul class="nav nav-pills nav-stacked">
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PERSON <span class="label label-success pull-right"> 1 </span>', ['person/main'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> ADDRESS <span class="label label-danger pull-right"> 2 </span>', ['address/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> DEATH <span class="label label-danger pull-right"> 3 </span>', ['death/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> DEATH <span class="label label-success pull-right"> 3 </span>', ['death/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CHRONIC <span class="label label-danger pull-right"> 4 </span>', ['chronic/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CARD <span class="label label-danger pull-right"> 5 </span>', ['card/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> HOME <span class="label label-danger pull-right"> 6 </span>', ['home/index'], ['class' => 'list-group-item']); ?>

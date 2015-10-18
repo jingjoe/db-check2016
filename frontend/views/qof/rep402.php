@@ -1,9 +1,8 @@
 
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม dental');
-
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ43แฟ้ม', 'url' => ['check/index']];
-$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม dental';
+$this->title = Yii::t('app', 'เด็กนักเรียน ป. 1 ได้รับการตรวจช่องปาก');
+$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ qof', 'url' => ['qof/index']];
+$this->params['breadcrumbs'][] = 'เด็กนักเรียน ป. 1 ได้รับการตรวจช่องปาก';
 
 use kartik\grid\GridView;
 use yii\helpers\Html;
@@ -11,7 +10,12 @@ use kartik\date\DatePicker;
 use yii\bootstrap\ActiveForm;
 
 ?>
-<div class="well">
+<div class="alert alert-primary">
+    <h4><font color="#FFFF00">เด็กนักเรียน ป. 1 ได้รับการตรวจช่องปาก (ผู้รับผิดชอบ นัชฒภัทร ปานอำพัน)</font></h4>
+    <h6><p><font color="#FFFFFF">เด็กนักเรียนชั้น ป.1 ในโรงเรียนที่ตั้งอยู่ในเขตรับผิดชอบของ รพ. อายุ 6 ปีเต็ม ถึง 7 ปี 11 เดือน 29 วัน เป็นเด็กไทยทุกสิทธิประกันสุขภาพ ได้รับการตรวจช่องปาก 
+    (ช่วง 1 เมษายน 2558 ถึง 31 มีนาคม 2559) เกณฑ์เป้าหมายไม่น้อยกว่าร้อยละ 85 </font></p></h6>
+</div>
+<div class='well'>
     <div class="row">
         <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
         <div class="col-md-3">
@@ -61,17 +65,17 @@ use yii\bootstrap\ActiveForm;
 echo GridView::widget([
     'dataProvider' => $dataProvider,
     'panel' => [
-        'type' => GridView::TYPE_SUCCESS,
+        'type' => GridView::TYPE_DEFAULT,
         //'before' => Html::a('<i class="glyphicon glyphicon-repeat"></i> Reload', ['/dental/index'], ['class' => 'btn btn-info']),
         //'after' => 'วันที่ประมวลผล '.date('Y-m-d H:i:s').' น.',
-        'type' => 'success',   
     ],
-    'responsive' => true,
-    'hover' => true,
-    'floatHeader' => true,
-    'pjax'=>true,
+    //'showFooter'=>TRUE,
+    'responsive' => TRUE,
+    'hover' => TRUE,
+    'floatHeader' => TRUE,
+    'pjax'=>TRUE,
     'pjaxSettings'=>[
-        'neverTimeout'=> true,
+        'neverTimeout'=> TRUE,
         'beforeGrid'=>'',
         'afterGrid'=>'',
     ],
@@ -80,34 +84,23 @@ echo GridView::widget([
             'class'=>'yii\grid\SerialColumn'
         ],
         [
-            'attribute' => 'hn',
-            'header' => 'HN'
+            'attribute' => 'school_name',
+            'header' => 'โรงเรียน'
         ],
         [
-            'attribute' => 'vn',
-            'header' => 'VN'
-        ],
-        [
-            'attribute' => 'cid',
-            'header' => 'เลข 13 หลัก'
-        ],
-        [
-            'attribute' => 'full_name',
-            'header' => 'ชื่อ-นามสกุล'
-        ],
-        [
-            'attribute' => 'vstdate',
-            'header' => 'วันรับบริการ'
-        ],  
-        [
-            'label' => 'ตรวจสอบ',
+            'label' => 'เป้าหมาย (คน)',
             'format' => 'raw',
-            'value' => function($data) use($date1,$date2) {
-                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/dental/view' ,'id'=>$data['vn'], 'date1' => $date1, 'date2' => $date2,]);
+            'value' => function($model){
+                return  Html::a(Html::encode($model['b']),['/qof/goal402' ,'id'=>$model['village_school_id']]);
+            }// end value
+        ],
+        [
+            'label' => 'ผลงาน  (คน)',
+            'format' => 'raw',
+            'value' => function($model) use($date1,$date2){
+                return  Html::a(Html::encode($model['a']),['/qof/result402' ,'id'=>$model['village_school_id'], 'date1' => $date1, 'date2' => $date2]);
             }// end value
         ]
-]
+    ]
 ]);
-
-
 

@@ -1,9 +1,8 @@
 
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม dental');
-
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ43แฟ้ม', 'url' => ['check/index']];
-$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม dental';
+$this->title = Yii::t('app', 'การสั่งใช้ยาสมุนไพรพื้นฐานมากกว่า 5 รายการ ');
+$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ qof', 'url' => ['qof/index']];
+$this->params['breadcrumbs'][] = 'หน่วยบริการที่มีแพทย์แผนไทยปฏิบัติงานประจำและมีการสั่งใช้ยาสมุนไพรพื้นฐานมากกว่า 5 รายการ ';
 
 use kartik\grid\GridView;
 use yii\helpers\Html;
@@ -11,7 +10,11 @@ use kartik\date\DatePicker;
 use yii\bootstrap\ActiveForm;
 
 ?>
-<div class="well">
+<div class="alert alert-primary">
+    <h4><font color="#FFFF00">หน่วยบริการมีการสั่งใช้ยาสมุนไพรพื้นฐานมากกว่า 5 รายการ (ผู้รับผิดชอบ จริญญา สันทะวา)</font></h4>
+     <h6><p><font color="#FFFFFF">จ่ายยาสมุนไพรมากกว่า 5 รายการ นับยานอกและในบัญชี นับเฉพาะสิทธิ UC รหัสยาสมุนไพร ขึ้นต้นด้วย 41 และ 42(ช่วง 1 เมษายน 2558 ถึง 31 มีนาคม 2559) เกณฑ์เป้าหมายไม่น้อยกว่าร้อยละ 70 </font></p></h6>
+</div>
+<div class='well'>
     <div class="row">
         <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
         <div class="col-md-3">
@@ -61,17 +64,17 @@ use yii\bootstrap\ActiveForm;
 echo GridView::widget([
     'dataProvider' => $dataProvider,
     'panel' => [
-        'type' => GridView::TYPE_SUCCESS,
+        'type' => GridView::TYPE_DEFAULT,
         //'before' => Html::a('<i class="glyphicon glyphicon-repeat"></i> Reload', ['/dental/index'], ['class' => 'btn btn-info']),
         //'after' => 'วันที่ประมวลผล '.date('Y-m-d H:i:s').' น.',
-        'type' => 'success',   
     ],
-    'responsive' => true,
-    'hover' => true,
-    'floatHeader' => true,
-    'pjax'=>true,
+    //'showFooter'=>TRUE,
+    'responsive' => TRUE,
+    'hover' => TRUE,
+    'floatHeader' => TRUE,
+    'pjax'=>TRUE,
     'pjaxSettings'=>[
-        'neverTimeout'=> true,
+        'neverTimeout'=> TRUE,
         'beforeGrid'=>'',
         'afterGrid'=>'',
     ],
@@ -80,34 +83,29 @@ echo GridView::widget([
             'class'=>'yii\grid\SerialColumn'
         ],
         [
-            'attribute' => 'hn',
-            'header' => 'HN'
+            'attribute' => 'icode',
+            'header' => 'รหัสยา'
         ],
         [
-            'attribute' => 'vn',
-            'header' => 'VN'
+            'attribute' => 'name',
+            'header' => 'ชื่อยา'
+        ], 
+        [
+            'attribute' => 'did',
+            'header' => 'รหัสยา 24 หลัก'
+        ], 
+        [
+            'attribute' => 'strength',
+            'header' => 'ขนาด'
+        ], 
+        [
+            'attribute' => 'units',
+            'header' => 'หน่วย'
         ],
         [
-            'attribute' => 'cid',
-            'header' => 'เลข 13 หลัก'
-        ],
-        [
-            'attribute' => 'full_name',
-            'header' => 'ชื่อ-นามสกุล'
-        ],
-        [
-            'attribute' => 'vstdate',
-            'header' => 'วันรับบริการ'
-        ],  
-        [
-            'label' => 'ตรวจสอบ',
-            'format' => 'raw',
-            'value' => function($data) use($date1,$date2) {
-                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/dental/view' ,'id'=>$data['vn'], 'date1' => $date1, 'date2' => $date2,]);
-            }// end value
+            'attribute' => 'cc_drug',
+            'header' => 'สิทธิ UC (ครั้ง)'
         ]
-]
+    ]
 ]);
-
-
 

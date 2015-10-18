@@ -1,9 +1,8 @@
 
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม accident');
-
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ43แฟ้ม', 'url' => ['check/index']];
-$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม accident';
+$this->title = Yii::t('app', 'หญิงมีครรภ์ได้รับการฝากครรภ์ครบ 5 ครั้งตามเกณฑ์');
+$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ qof', 'url' => ['qof/index']];
+$this->params['breadcrumbs'][] = 'หญิงมีครรภ์ได้รับการฝากครรภ์ครบ 5 ครั้งตามเกณฑ์';
 
 use kartik\grid\GridView;
 use yii\helpers\Html;
@@ -11,12 +10,16 @@ use kartik\date\DatePicker;
 use yii\bootstrap\ActiveForm;
 
 ?>
-
-<div class="well">
+<div class="alert alert-primary">
+     <h4><font color="#FFFF00">หญิงมีครรภ์ได้รับการฝากครรภ์ครบ 5 ครั้งตามเกณฑ์  (ผู้รับผิดชอบ อริสรา ต้นวิชา)</font></h4>
+     <h6><p><font color="#FFFFFF">หญิงมีครรภ์คนไทยทุกสิทธิประกันสุขภาพได้รับการฝากครรภ์ครบ 5 ครั้งตามเกณฑ์   เป็นหญิงในเขตรับผิดชอบที่คลอดบุตรแล้ว
+     แหล่งข้อมูลจากฐาน OPPPแฟ้ม MCH และ ANC (ช่วง 1 เมษายน 2558 ถึง 31 มีนาคม 2559) เกณฑ์เป้าหมายไม่น้อยกว่าร้อยละ 60 </font></p></h6>
+</div>
+<div class='well'>
     <div class="row">
         <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
         <div class="col-md-3">
-            ระบุวันที่  
+            ระบุวันที่   
             <?php
             echo DatePicker::widget([
                 'name' => 'date1',
@@ -33,7 +36,7 @@ use yii\bootstrap\ActiveForm;
         </div>
 
         <div class="col-md-3">
-            ถึง 
+            ถึง
             <?php
             echo DatePicker::widget([
                 'name' => 'date2',
@@ -54,20 +57,17 @@ use yii\bootstrap\ActiveForm;
             <div class="input-group">
                 <?= Html::submitButton('ประมวลผล') ?>
             </div><!-- /.input group -->
-        </div> 
+        </div>  
         <?php ActiveForm::end(); ?>
-
     </div>
 </div>
-
 <?php
 echo GridView::widget([
     'dataProvider' => $dataProvider,
     'panel' => [
-        'type' => GridView::TYPE_SUCCESS,
+        'type' => GridView::TYPE_DEFAULT,
         //'before' => Html::a('<i class="glyphicon glyphicon-repeat"></i> Reload', ['/dental/index'], ['class' => 'btn btn-info']),
         //'after' => 'วันที่ประมวลผล '.date('Y-m-d H:i:s').' น.',
-        'type' => 'success',   
     ],
     'responsive' => true,
     'hover' => true,
@@ -83,34 +83,23 @@ echo GridView::widget([
             'class'=>'yii\grid\SerialColumn'
         ],
         [
-            'attribute' => 'hn',
-            'header' => 'HN'
+            'attribute' => 'village_name',
+            'header' => 'หมู่บ้าน'
         ],
         [
-            'attribute' => 'vn',
-            'header' => 'VN'
-        ],
-        [
-            'attribute' => 'cid',
-            'header' => 'เลข 13 หลัก'
-        ],
-        [
-            'attribute' => 'full_name',
-            'header' => 'ชื่อ-นามสกุล'
-        ],
-        [
-            'attribute' => 'enter_er_time',
-            'header' => 'วันรับบริการ'
-        ],  
-        [
-            'label' => 'ตรวจสอบ',
+            'label' => 'เป้าหมาย (คน)',
             'format' => 'raw',
-            'value' => function($data) use($date1,$date2) {
-                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/accident/view' ,'id'=>$data['vn'], 'date1' => $date1, 'date2' => $date2,]);
+            'value' => function($model)use($date1,$date2){
+                return  Html::a(Html::encode($model['b']),['/qof/goal102' ,'id'=>$model['village_id'], 'date1' => $date1, 'date2' => $date2]);
+            }// end value
+        ],
+        [
+            'label' => 'ผลงาน  (คน)',
+            'format' => 'raw',
+            'value' => function($model) use($date1,$date2){
+                return  Html::a(Html::encode($model['a']),['/qof/result102' ,'id'=>$model['village_id'], 'date1' => $date1, 'date2' => $date2]);
             }// end value
         ]
-]
+    ]
 ]);
-
-
 

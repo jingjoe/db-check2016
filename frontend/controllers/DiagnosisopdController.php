@@ -8,8 +8,11 @@ use Yii;
 use yii\data\ArrayDataProvider;
 
 class DiagnosisopdController extends Controller {
-    
     public function actionIndex() {
+        $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
+        if ($role == 99) {
+            throw new \yii\web\ConflictHttpException('คุณไม่ได้รับอนุญาติให้เข้าใช้งานส่วนนี้ กรุณาติดต่อผู้ดูแลระบบ !');
+        } 
         
         $date1 = "";
         $date2 = "";
@@ -45,9 +48,12 @@ class DiagnosisopdController extends Controller {
 
         return $this->render('index', ['dataProvider' => $dataProvider, 'date1' => $date1, 'date2' => $date2]);
     }
-     
     public function actionView($id=NULL ,$date1 = NULL, $date2 = NULL) {
-                
+        $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
+        if ($role == 99) {
+            throw new \yii\web\ConflictHttpException('คุณไม่ได้รับอนุญาติให้เข้าใช้งานส่วนนี้ กรุณาติดต่อผู้ดูแลระบบ !');
+        } 
+             
         $sql = "SELECT  v.vn,concat(pt.pname,pt.fname,' ',pt.lname) as full_name 
         ,(SELECT hospitalcode FROM opdconfig) AS hospcode
         ,v.cid AS pid

@@ -1,9 +1,8 @@
 
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม dental');
-
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ43แฟ้ม', 'url' => ['check/index']];
-$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม dental';
+$this->title = Yii::t('app', 'เด็กอายุ 1 ปี ที่ได้รับวัคซีนโรคหัด');
+$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ qof', 'url' => ['qof/index']];
+$this->params['breadcrumbs'][] = 'เด็กอายุ 1 ปี ที่ได้รับวัคซีนโรคหัด';
 
 use kartik\grid\GridView;
 use yii\helpers\Html;
@@ -11,7 +10,12 @@ use kartik\date\DatePicker;
 use yii\bootstrap\ActiveForm;
 
 ?>
-<div class="well">
+<div class="alert alert-primary">
+    <h4><font color="#FFFF00">เด็กอายุ 1 ปี ที่ได้รับวัคซีนโรคหัด (ผู้รับผิดชอบ ประนอม เฉิดสถิตย์)</font></h4>
+    <h6><p><font color="#FFFFFF">เด็กอายุ 1 ปี ที่ได้รับวัคซีนโรคหัด มีองค์ประกอบ (M,MR,MMR)รหัส VCCTYPE 061 ประชากรในเขตรับผิดชอบ ระยะเวลาประเมินปีละ 1 ครั้ง 
+    (ช่วง 1 เมษายน 2558 ถึง 31 มีนาคม 2559) เกณฑ์เป้าหมายไม่น้อยกว่าร้อยละ 95 (ให้ระบุเงื่อนไข วันเกิดเด็ก 1 เมษายน 2557 ถึง 31 มีนาคม 2558)</font></p></h6>
+</div>
+<div class='well'>
     <div class="row">
         <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
         <div class="col-md-3">
@@ -53,7 +57,7 @@ use yii\bootstrap\ActiveForm;
             <div class="input-group">
                 <?= Html::submitButton('ประมวลผล') ?>
             </div><!-- /.input group -->
-        </div>  
+        </div> 
         <?php ActiveForm::end(); ?>
     </div>
 </div>
@@ -64,14 +68,14 @@ echo GridView::widget([
         'type' => GridView::TYPE_SUCCESS,
         //'before' => Html::a('<i class="glyphicon glyphicon-repeat"></i> Reload', ['/dental/index'], ['class' => 'btn btn-info']),
         //'after' => 'วันที่ประมวลผล '.date('Y-m-d H:i:s').' น.',
-        'type' => 'success',   
     ],
-    'responsive' => true,
-    'hover' => true,
-    'floatHeader' => true,
-    'pjax'=>true,
+    //'showFooter'=>TRUE,
+    'responsive' => TRUE,
+    'hover' => TRUE,
+    'floatHeader' => TRUE,
+    'pjax'=>TRUE,
     'pjaxSettings'=>[
-        'neverTimeout'=> true,
+        'neverTimeout'=> TRUE,
         'beforeGrid'=>'',
         'afterGrid'=>'',
     ],
@@ -80,34 +84,23 @@ echo GridView::widget([
             'class'=>'yii\grid\SerialColumn'
         ],
         [
-            'attribute' => 'hn',
-            'header' => 'HN'
+            'attribute' => 'village_name',
+            'header' => 'หมู่บ้าน'
         ],
         [
-            'attribute' => 'vn',
-            'header' => 'VN'
-        ],
-        [
-            'attribute' => 'cid',
-            'header' => 'เลข 13 หลัก'
-        ],
-        [
-            'attribute' => 'full_name',
-            'header' => 'ชื่อ-นามสกุล'
-        ],
-        [
-            'attribute' => 'vstdate',
-            'header' => 'วันรับบริการ'
-        ],  
-        [
-            'label' => 'ตรวจสอบ',
+            'label' => 'เป้าหมาย (คน)',
             'format' => 'raw',
-            'value' => function($data) use($date1,$date2) {
-                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/dental/view' ,'id'=>$data['vn'], 'date1' => $date1, 'date2' => $date2,]);
+            'value' => function($model) use($date1,$date2){
+                return  Html::a(Html::encode($model['b']),['/qof/goal401' ,'id'=>$model['village_id'], 'date1' => $date1, 'date2' => $date2,]);
+            }// end value
+        ],
+        [
+            'label' => 'ผลงาน  (คน)',
+            'format' => 'raw',
+            'value' => function($model) use($date1,$date2){
+                return  Html::a(Html::encode($model['a']),['/qof/result401' ,'id'=>$model['village_id'], 'date1' => $date1, 'date2' => $date2,]);
             }// end value
         ]
-]
+    ]
 ]);
-
-
 

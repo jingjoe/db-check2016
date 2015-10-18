@@ -1,16 +1,13 @@
 
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม person และ patient รายบุคคล');
+$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม person รายบุคคล');
 $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ43แฟ้ม', 'url' => ['check/index']];
 $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม person และ patient', 'url' => ['person/main']];
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม person', 'url' => ['person/index1']];
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม patient', 'url' => ['person/index2']];
-$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม person และ patient รายบุคคล';
+$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม person รายบุคคล';
 
 use yii\helpers\Html;
 
 ?>
-
 
 <?php foreach ($data_view as $chk) { ?>
 <?php } ?>   

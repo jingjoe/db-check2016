@@ -7,13 +7,15 @@ use yii\db\Query;
 use Yii;
 use yii\data\ArrayDataProvider;
 
-class PersonController extends Controller {
-    
+class PersonController extends Controller { 
     public function actionMain() {
         return $this->render('main');
     }
-    
     public function actionIndex1() {
+        $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
+        if ($role == 99) {
+            throw new \yii\web\ConflictHttpException('คุณไม่ได้รับอนุญาติให้เข้าใช้งานส่วนนี้ กรุณาติดต่อผู้ดูแลระบบ !');
+        } 
         
         $date1 = "";
         $date2 = "";
@@ -44,9 +46,12 @@ class PersonController extends Controller {
         ]);
 
         return $this->render('index1', ['dataProvider' => $dataProvider, 'date1' => $date1, 'date2' => $date2]);
-    }
-    
+    } 
     public function actionIndex2() {
+        $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
+        if ($role == 99) {
+            throw new \yii\web\ConflictHttpException('คุณไม่ได้รับอนุญาติให้เข้าใช้งานส่วนนี้ กรุณาติดต่อผู้ดูแลระบบ !');
+        } 
         
         $date1 = "";
         $date2 = "";
@@ -76,9 +81,12 @@ class PersonController extends Controller {
         ]);
 
         return $this->render('index2', ['dataProvider' => $dataProvider, 'date1' => $date1, 'date2' => $date2]);
-    }
-    
+    } 
     public function actionView1($id=NULL ,$date1 = NULL, $date2 = NULL) {
+        $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
+        if ($role == 99) {
+            throw new \yii\web\ConflictHttpException('คุณไม่ได้รับอนุญาติให้เข้าใช้งานส่วนนี้ กรุณาติดต่อผู้ดูแลระบบ !');
+        } 
         
         $sql = "SELECT CONCAT(pe.pname,pe.fname,' ',pe.lname) full_name,v.vstdate
         ,(SELECT hospitalcode FROM opdconfig ) AS hospcode
@@ -128,9 +136,12 @@ class PersonController extends Controller {
         
        $data = Yii::$app->db2->createCommand($sql)->queryAll();
         return $this->render('view', ['data_view' => $data]);
-    }
-    
+    } 
     public function actionView2($id=NULL ,$date1 = NULL, $date2 = NULL) {
+        $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
+        if ($role == 99) {
+            throw new \yii\web\ConflictHttpException('คุณไม่ได้รับอนุญาติให้เข้าใช้งานส่วนนี้ กรุณาติดต่อผู้ดูแลระบบ !');
+        } 
         
         $sql = "select CONCAT(pt.pname,pt.fname,' ',pt.lname) full_name,v.vstdate
         ,(SELECT hospitalcode FROM opdconfig ) AS hospcode

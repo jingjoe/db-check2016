@@ -12,7 +12,7 @@ use yii\bootstrap\ActiveForm;
 
 ?>
 
-<div class="form-group">
+<div class="well">
     <div class="row">
         <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
         <div class="col-md-3">
@@ -50,9 +50,9 @@ use yii\bootstrap\ActiveForm;
         </div>
 
         <div class="col-md-2">
-            <font color="#f9f9f9" >.</font> 
+            <label><font color="#FFFF">.</font></label>
             <div class="input-group">
-                <?= Html::submitButton('ประมวลผล', ['class' => 'btn btn-danger']) ?>
+                <?= Html::submitButton('ประมวลผล') ?>
             </div><!-- /.input group -->
         </div> 
         <?php ActiveForm::end(); ?>

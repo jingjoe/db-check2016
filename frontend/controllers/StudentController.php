@@ -8,9 +8,12 @@ use Yii;
 use yii\data\ArrayDataProvider;
 
 class StudentController extends Controller {
-    
     public function actionIndex() {
-        
+        $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
+        if ($role == 99) {
+            throw new \yii\web\ConflictHttpException('คุณไม่ได้รับอนุญาติให้เข้าใช้งานส่วนนี้ กรุณาติดต่อผู้ดูแลระบบ !');
+        } 
+          
         $sql = "SELECT a.person_id  AS pid 
         ,p.cid
         ,concat(p.pname,p.fname,' ',p.lname) AS full_name
@@ -28,11 +31,6 @@ class StudentController extends Controller {
         left outer join village_school_room vr on vr.village_school_room_id = a.village_school_room_id
         left outer join village ve on ve.village_id=vs.village_id
         where (a.discharge<>'Y' or a.discharge is null)
-        and (a.person_id='' or a.person_id is null  
-        or ve.address_id='' or ve.address_id is null  
-        or a.village_school_id='' or a.village_school_id is null 
-        or a.village_school_class_id='' or a.village_school_class_id is null 
-        or p.cid='' or p.cid is null)  
         order by a.village_school_id,a.village_school_class_id,a.village_school_room_id";
 
         $data = Yii::$app->db2->createCommand($sql)->queryAll();
@@ -42,8 +40,11 @@ class StudentController extends Controller {
 
         return $this->render('index', ['dataProvider' => $dataProvider]);
     }
-     
     public function actionView($id=NULL) {
+        $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
+        if ($role == 99) {
+            throw new \yii\web\ConflictHttpException('คุณไม่ได้รับอนุญาติให้เข้าใช้งานส่วนนี้ กรุณาติดต่อผู้ดูแลระบบ !');
+        } 
         
         $sql = "select (SELECT hospitalcode FROM opdconfig) AS hospcode,
         a.person_id  as pid,
@@ -73,7 +74,7 @@ class StudentController extends Controller {
         or p.cid='' or p.cid is null)  
         order by a.village_school_id,a.village_school_class_id,a.village_school_room_id";
         
-       $data = Yii::$app->db2->createCommand($sql)->queryAll();
+        $data = Yii::$app->db2->createCommand($sql)->queryAll();
         return $this->render('view', ['data_view' => $data]);
     }
 }

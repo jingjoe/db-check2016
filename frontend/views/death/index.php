@@ -1,9 +1,9 @@
 
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม accident');
+$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม death');
 
 $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ43แฟ้ม', 'url' => ['check/index']];
-$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม accident';
+$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม death';
 
 use kartik\grid\GridView;
 use yii\helpers\Html;
@@ -54,7 +54,7 @@ use yii\bootstrap\ActiveForm;
             <div class="input-group">
                 <?= Html::submitButton('ประมวลผล') ?>
             </div><!-- /.input group -->
-        </div> 
+        </div>  
         <?php ActiveForm::end(); ?>
 
     </div>
@@ -87,10 +87,6 @@ echo GridView::widget([
             'header' => 'HN'
         ],
         [
-            'attribute' => 'vn',
-            'header' => 'VN'
-        ],
-        [
             'attribute' => 'cid',
             'header' => 'เลข 13 หลัก'
         ],
@@ -99,14 +95,14 @@ echo GridView::widget([
             'header' => 'ชื่อ-นามสกุล'
         ],
         [
-            'attribute' => 'enter_er_time',
-            'header' => 'วันรับบริการ'
+            'attribute' => 'death_date',
+            'header' => 'วันเสียชีวิต'
         ],  
         [
             'label' => 'ตรวจสอบ',
             'format' => 'raw',
             'value' => function($data) use($date1,$date2) {
-                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/accident/view' ,'id'=>$data['vn'], 'date1' => $date1, 'date2' => $date2,]);
+                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/death/view' ,'id'=>$data['hn'], 'date1' => $date1, 'date2' => $date2,]);
             }// end value
         ]
 ]
