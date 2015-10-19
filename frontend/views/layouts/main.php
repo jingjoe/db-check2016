@@ -99,7 +99,6 @@ material\MaterialAsset::register($this);
         <p class="pull-right">Powered by <?= Html::a('Wichian Nunsri', ['site/about']) ?></p>
     </div>
 </footer>
-
 <?php $this->endBody() ?>
 </body>
 </html>
