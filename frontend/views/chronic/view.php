@@ -1,9 +1,9 @@
 
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม procedure_opd รายบุคคล');
+$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม chronic รายบุคคล');
 $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ 43 แฟ้ม', 'url' => ['oppp/index']];
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม diagnosis_opd', 'url' => ['procedureopd/index']];
-$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม procedure_opd รายบุคคล';
+$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม accident', 'url' => ['chronic/index']];
+$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม chronic รายบุคคล';
 
 use yii\helpers\Html;
 
@@ -17,7 +17,7 @@ use yii\helpers\Html;
     <h3 class="box-title"> 
         ชื่อ-นามสกุล : <font color="#F7FE2E"><?php echo $chk['full_name']; ?></font> &nbsp; &nbsp;  
         HN : <font color="#F7FE2E"><?php echo $chk['hn']; ?></font> &nbsp; &nbsp; 
-        วัน/เวลารับบริการ : <font color="#F7FE2E"><?php echo $chk['date_serv']; ?></font></h3>
+        วัน/เวลารับบริการ : <font color="#F7FE2E"><?php echo $chk['vstdate']; ?></font></h3>
 </div><!-- /.box-header -->
 
 <div class="box box-solid">                     
@@ -56,7 +56,7 @@ use yii\helpers\Html;
                         <td><?php echo $chk['pid']; ?></td>
                         <td><font color="red"><?php
                             if ($chk['pid'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบทะเบียนบุคคล [ทะเบียนของบุคคลที่มาขึ้นทะเบียนในสถานบริการนั้นๆ ใช้สำหรับเชื่อมโยงหาตัวบุคคลในแฟ้มอื่น ๆ (สามารถกำหนดได้ตั้งแต่ 1-15 หลัก)]';
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบทะเบียนของบุคคล [ทะเบียนของบุคคลที่มาขึ้น ทะเบียนในสถานบริการนั้น ๆ ใช้สำหรับเชี่อมโยงหาตัวบุคคลในแฟ้มอื่น ๆ (สามารถกำหนดได้ตั้ง แต่ 1-15 หลัก)(program generate)]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -65,11 +65,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>3</td>
-                        <th scope="row"><code>SEQ [ลำดับที่]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['seq']; ?></td>
+                        <th scope="row"><code>DATE_DIAG [วันที่ตรวจพบครั้งแรก]</code></th>
+                        <td><?php echo $chk['date_diag']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['seq'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบลำดับที่การให้บริการ [ลำดับที่ของการบริการที่กำหนดโดยโปรแกรมเรียงลำดับโดยไม่ซ้ำกัน สำหรับการมารับบริการแต่ละครั้ง (visit)]';
+                            if ($chk['date_diag'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันเดือนปีที่ตรวจพบครั้ง แรก[วันเดือนปีที่ตรวจพบครั้งแรก หมายเหตุ : วันเดือนปีที่ได้รับการวินิจฉัย/ตรวจพบครั้ง แรก';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -78,11 +78,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>4</td>
-                        <th scope="row"><code>DATE_SERV [วันที่ให้บริการ]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['date_serv']; ?></td>
+                        <th scope="row"><code>CHRONIC [รหัสวินิฉัยโรคเรื้อรัง]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
+                        <td><?php echo $chk['chronic']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['date_serv'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันเดือนปีที่มารับบริการ [วันเดือนปีที่มารับบริการ กำหนดเป็น ค.ศ.(YYYYMMDD)หมายเหตุ : กรณีที่บันทีกข้อมูลย้อนหลัง ให้เปลี่ยนวันกลับเป็นวันที่รับบริการจริง]';
+                            if ($chk['chronic'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบรหัสโรค ICD - 10 โรคเรื้อรัง [รหัสโรค ICD - 10 - TM (โรคเรื้อรัง)';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -91,11 +91,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>5</td>
-                        <th scope="row"><code>CLINIC [แผนกที่รับบริการ]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['clinic']; ?></td>
+                        <th scope="row"><code>HOSP_DX [สถานพยาบาลที่วินิจฉัยครั้งแรก]</code></th>
+                        <td><?php echo $chk['hosp_dx']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['clinic'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบรหัสแผนกที่รับบริการ [รหัสแผนกที่รับบริการ อ้างอิงตามมาตรฐาน สนย.หมายเหตุ : กรณี รพ.สต. ให้ลงรหัสแผนกบริการ ตามการให้บริการจริง';
+                            if ($chk['hosp_dx'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบรหัสพยาบาลที่วินิจฉัยครั้งแรก ';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -104,11 +104,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>6</td>
-                        <th scope="row"><code>PROCEDCODE [รหัสหัตถการ]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['procedcode']; ?></td>
+                        <th scope="row"><code>HOSP_RX [สถานพยาบาลที่รับบริการประจำ]</code></th>
+                        <td><?php echo $chk['hosp_rx']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['procedcode'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบการให้รหัสหัตถการ[รหัสมาตรฐาน ICD-9-CM หรือ ICD-10-TM (รหัสหัตถการ)]';
+                            if ($chk['hosp_rx'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบรหัสสถานพยาบาลที่ไปรับบริการประจำ';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -117,11 +117,12 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>7</td>
-                        <th scope="row"><code>SERVICEPRICE [ราคาค่าหัตถการ]</code></th>
-                        <td><?php echo $chk['serviceprice']; ?></td>
+                        <th scope="row"><code>DATE_DISCH [วันที่จำหน่าย]</code></th>
+                        <td><?php echo $chk['date_disch']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['serviceprice'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบราคาค่าบริการหัตถการ [ราคาค่าบริการหัตถการ มีทศนิยม 2 ตำแหน่ง]';
+                            if ($chk['date_disch'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันเดือนปีที่จำหน่าย[วันเดือนปีที่จำหน่าย กำหนดเป็น ค.ศ.(YYYYMMDD)
+                                หมายเหตุ : บันทึกกรณีที่สามารถระบุประเภทการจำหน่าย หรือ สถานะของผู้ป่วยที่ทราบผลหลังสุด (No. 8) ยกเว้น 03 = ยังรักษาอยู่, 05 = รอจำหน่าย/เฝ้ าระวัง]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -130,11 +131,12 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>8</td>
-                        <th scope="row"><code>PROVIDER [เลขที่ผู้ให้บริการ]</code></th>
-                        <td><?php echo $chk['provider']; ?></td>
+                        <th scope="row"><code>TYPEDISCH [ประเภทการจำหน่าย หรือสถานะ ของผู้ป่วยที่ทราบผลหลังสุด]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
+                        <td><?php echo $chk['typedisch']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['provider'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบเลขที่ผู้ให้บริการ [เลขที่ผู้ให้บริการ ออกโดยโปรแกรม ไม่ซ้ำ กันในสถานพยาบาลเดียวกัน]';
+                            if ($chk['typedisch'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบประเภทการจำหน่าย[01 = หาย , 02 = ตาย , 03 = ยังรักษาอยู่ , 04 = ไม่ทราบ(ไม่มีข้อมูล) ,
+                                05 = รอจำหน่าย/เฝ้าระวัง, 06 = ขาดการรักษาไม่มาติดต่ออีก(ทราบว่าขาดการรักษา), 07 = ครบการรักษา, 08 =โรคอยู่ในภาวะสงบ(inactive) ไม่มีความจำเป็นต้องรักษา, 09 = ปฏิเสธการรักษา,10 = ออกจากพื้นที่]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }

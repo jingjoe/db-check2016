@@ -1,8 +1,7 @@
 
 <?php
 $this->title = Yii::t('app', 'ตรวจสอบแฟ้ม accident');
-
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ43แฟ้ม', 'url' => ['check/index']];
+$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ 43 แฟ้ม', 'url' => ['oppp/index']];
 $this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม accident';
 
 use kartik\grid\GridView;

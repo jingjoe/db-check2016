@@ -1294,6 +1294,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND (a.pdx between 'E100' AND 'E101' 
         OR a.pdx between 'E110' AND 'E111' 
         OR a.pdx between 'E120' AND 'E121' 
@@ -1323,6 +1324,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND (a.pdx between 'E100' AND 'E101' 
         OR a.pdx between 'E110' AND 'E111' 
         OR a.pdx between 'E120' AND 'E121' 
@@ -1352,6 +1354,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND (a.pdx between 'E100' AND 'E101' 
         OR a.pdx between 'E110' AND 'E111' 
         OR a.pdx between 'E120' AND 'E121' 
@@ -1381,6 +1384,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND (a.pdx between 'E100' AND 'E101' 
         OR a.pdx between 'E110' AND 'E111' 
         OR a.pdx between 'E120' AND 'E121' 
@@ -1410,6 +1414,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND (a.pdx between 'E100' AND 'E101' 
         OR a.pdx between 'E110' AND 'E111' 
         OR a.pdx between 'E120' AND 'E121' 
@@ -1439,6 +1444,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND (a.pdx between 'E100' AND 'E101' 
         OR a.pdx between 'E110' AND 'E111' 
         OR a.pdx between 'E120' AND 'E121' 
@@ -1468,6 +1474,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND (a.pdx between 'E100' AND 'E101' 
         OR a.pdx between 'E110' AND 'E111' 
         OR a.pdx between 'E120' AND 'E121' 
@@ -1497,6 +1504,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND (a.pdx between 'E100' AND 'E101' 
         OR a.pdx between 'E110' AND 'E111' 
         OR a.pdx between 'E120' AND 'E121' 
@@ -1526,6 +1534,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND (a.pdx between 'E100' AND 'E101' 
         OR a.pdx between 'E110' AND 'E111' 
         OR a.pdx between 'E120' AND 'E121' 
@@ -1587,6 +1596,7 @@ class QofController extends Controller {
         INNER JOIN village  vi on vi.village_id=pe.village_id
         INNER JOIN doctor doc ON doc.code=a.dx_doctor
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND (a.pdx between 'E100' AND 'E101' 
         OR a.pdx between 'E110' AND 'E111' 
         OR a.pdx between 'E120' AND 'E121' 
@@ -1633,6 +1643,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND ((a.pdx BETWEEN 'I10' AND 'I15' OR a.pdx='I674')
         OR (a.pdx BETWEEN 'I60' AND 'I62' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674' AND a.pdx NOT IN (a.pdx BETWEEN 'S00' AND 'T99'))
         OR (a.pdx='H350' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674'))
@@ -1660,6 +1671,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND ((a.pdx BETWEEN 'I10' AND 'I15' OR a.pdx='I674')
         OR (a.pdx BETWEEN 'I60' AND 'I62' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674' AND a.pdx NOT IN (a.pdx BETWEEN 'S00' AND 'T99'))
         OR (a.pdx='H350' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674'))
@@ -1687,6 +1699,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND ((a.pdx BETWEEN 'I10' AND 'I15' OR a.pdx='I674')
         OR (a.pdx BETWEEN 'I60' AND 'I62' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674' AND a.pdx NOT IN (a.pdx BETWEEN 'S00' AND 'T99'))
         OR (a.pdx='H350' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674'))
@@ -1714,6 +1727,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND ((a.pdx BETWEEN 'I10' AND 'I15' OR a.pdx='I674')
         OR (a.pdx BETWEEN 'I60' AND 'I62' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674' AND a.pdx NOT IN (a.pdx BETWEEN 'S00' AND 'T99'))
         OR (a.pdx='H350' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674'))
@@ -1741,6 +1755,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND ((a.pdx BETWEEN 'I10' AND 'I15' OR a.pdx='I674')
         OR (a.pdx BETWEEN 'I60' AND 'I62' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674' AND a.pdx NOT IN (a.pdx BETWEEN 'S00' AND 'T99'))
         OR (a.pdx='H350' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674'))
@@ -1768,6 +1783,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND ((a.pdx BETWEEN 'I10' AND 'I15' OR a.pdx='I674')
         OR (a.pdx BETWEEN 'I60' AND 'I62' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674' AND a.pdx NOT IN (a.pdx BETWEEN 'S00' AND 'T99'))
         OR (a.pdx='H350' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674'))
@@ -1795,6 +1811,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND ((a.pdx BETWEEN 'I10' AND 'I15' OR a.pdx='I674')
         OR (a.pdx BETWEEN 'I60' AND 'I62' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674' AND a.pdx NOT IN (a.pdx BETWEEN 'S00' AND 'T99'))
         OR (a.pdx='H350' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674'))
@@ -1823,6 +1840,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND ((a.pdx BETWEEN 'I10' AND 'I15' OR a.pdx='I674')
         OR (a.pdx BETWEEN 'I60' AND 'I62' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674' AND a.pdx NOT IN (a.pdx BETWEEN 'S00' AND 'T99'))
         OR (a.pdx='H350' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674'))
@@ -1850,6 +1868,7 @@ class QofController extends Controller {
         inner join person pe on pe.cid=pt.cid
         INNER JOIN village  vi on vi.village_id=pe.village_id
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND ((a.pdx BETWEEN 'I10' AND 'I15' OR a.pdx='I674')
         OR (a.pdx BETWEEN 'I60' AND 'I62' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674' AND a.pdx NOT IN (a.pdx BETWEEN 'S00' AND 'T99'))
         OR (a.pdx='H350' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674'))
@@ -1909,6 +1928,7 @@ class QofController extends Controller {
         INNER JOIN village  vi on vi.village_id=pe.village_id
         INNER JOIN doctor doc ON doc.code=a.dx_doctor
         where  a.dchdate between  '$date1' AND '$date2'
+        AND  p.pttype_spp_id in ('3','4')
         AND ((a.pdx BETWEEN 'I10' AND 'I15' OR a.pdx='I674')
         OR (a.pdx BETWEEN 'I60' AND 'I62' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674' AND a.pdx NOT IN (a.pdx BETWEEN 'S00' AND 'T99'))
         OR (a.pdx='H350' AND a.dx0 BETWEEN 'I10' AND 'I15' OR a.dx0='I674'))
@@ -2414,7 +2434,7 @@ class QofController extends Controller {
         INNER JOIN village_student vs ON vs.person_id=pe.person_id
         INNER JOIN village_school vc ON vc.village_school_id=vs.village_school_id
         where d.vstdate between '$date1'and '$date2'
-        and village_school_class_id='4'
+        and vs.village_school_class_id= '4'
         and d.tmcode in ('307','002131') 
         and vc.village_school_id='1'
 
@@ -2431,7 +2451,7 @@ class QofController extends Controller {
         INNER JOIN village_student vs ON vs.person_id=pe.person_id
         INNER JOIN village_school vc ON vc.village_school_id=vs.village_school_id
         where d.vstdate between '$date1'and '$date2'
-        and village_school_class_id='4'
+        and vs.village_school_class_id= '4'
         and d.tmcode in ('307','002131') 
         and vc.village_school_id='2'
 
@@ -2448,7 +2468,7 @@ class QofController extends Controller {
         INNER JOIN village_student vs ON vs.person_id=pe.person_id
         INNER JOIN village_school vc ON vc.village_school_id=vs.village_school_id
         where d.vstdate between '$date1'and '$date2'
-        and village_school_class_id='4'
+        and vs.village_school_class_id= '4'
         and d.tmcode in ('307','002131') 
         and vc.village_school_id='3'
 
@@ -2465,7 +2485,7 @@ class QofController extends Controller {
         INNER JOIN village_student vs ON vs.person_id=pe.person_id
         INNER JOIN village_school vc ON vc.village_school_id=vs.village_school_id
         where d.vstdate between '$date1'and '$date2'
-        and village_school_class_id='4'
+        and vs.village_school_class_id= '4'
         and d.tmcode in ('307','002131') 
         and vc.village_school_id='4'
 
@@ -2482,7 +2502,7 @@ class QofController extends Controller {
         INNER JOIN village_student vs ON vs.person_id=pe.person_id
         INNER JOIN village_school vc ON vc.village_school_id=vs.village_school_id
         where d.vstdate between '$date1'and '$date2'
-        and village_school_class_id='4'
+        and vs.village_school_class_id= '4'
         and d.tmcode in ('307','002131') 
         and vc.village_school_id='11'";
         
@@ -2522,6 +2542,38 @@ class QofController extends Controller {
 
         return $this->render('goal403', ['dataProvider' => $dataProvider]);       
     }
+    public function actionResult403($id=NULL,$date1 = NULL, $date2 = NULL) {
+        $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
+        if ($role == 99) {
+            throw new \yii\web\ConflictHttpException('คุณไม่ได้รับอนุญาติให้เข้าใช้งานส่วนนี้ กรุณาติดต่อผู้ดูแลระบบ !');
+        }
+        $sql = "SELECT pe.person_id AS pid,pe.cid,CONCAT(pe.pname,pe.fname,' ',pe.lname) AS full_name
+        ,pe.age_y
+        ,vc.school_name AS school
+        ,vsc.village_school_class_name AS class
+        ,d.vstdate
+        ,m.icd10tm_operation_code AS icd10tm
+        ,doc.name AS doc_name
+        FROM dtmain    d
+        LEFT OUTER JOIN vn_stat v ON v.vn=d.vn
+        LEFT OUTER JOIN person pe ON pe.cid=v.cid
+        LEFT OUTER JOIN village_student vs ON vs.person_id=pe.person_id
+        LEFT OUTER JOIN village_school vc ON vc.village_school_id=vs.village_school_id
+        LEFT OUTER JOIN village_school_class   vsc ON vsc.village_school_class_id=vs.village_school_class_id
+        INNER JOIN doctor doc ON doc.code=d.doctor
+        INNER JOIN dttm   m ON m.code=d.tmcode
+        WHERE d.vstdate BETWEEN  '$date1' AND '$date2'
+        AND d.tmcode IN ('307','002131')
+        AND vc.village_school_id='$id'
+        AND vs.village_school_class_id= '4'";
+        
+        $data = Yii::$app->db2->createCommand($sql)->queryAll();
+        $dataProvider = new ArrayDataProvider([
+            'allModels'=>$data,
+        ]);
+
+        return $this->render('result403', ['dataProvider' => $dataProvider]);       
+    } 
     
 //5.1 ร้อยละหน่วยบริการปฐมภูมิ(รพ.สต.)ที่มีแพทย์แผนไทยปฏิบัติงานประจำและมีการสั่งใช้ยาสมุนไพรพื้นฐานมากกว่า 5 รายการ
     public function actionRep5_1() {

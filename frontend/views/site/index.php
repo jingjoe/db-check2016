@@ -12,7 +12,7 @@ $this->title = 'Hospital Management Information Systems';
     <div class="well">
         <h1>HMIS</h1>
         <p class="lead">Hospital Management Information Systems</p>
-        <p><a class="btn btn-lg btn-success" <?= Html::a(' Website Hospital', 'http://kohyaohos.pngo.moph.go.th/', ['target' => '_blank']) ?> </p>
+        <p><a class="btn btn-lg btn-success" <?= Html::a('Website Hospital', 'http://kohyaohos.pngo.moph.go.th/', ['target' => '_blank']) ?> </p>
     </div>
 
     <div class="body-content">
@@ -20,7 +20,7 @@ $this->title = 'Hospital Management Information Systems';
             <div class="col-lg-7">
                 <div class="well">
                     <?php 
-                    $opd = Yii::$app->db2->createCommand("SELECT COUNT(DISTINCT hn) from vn_stat WHERE vstdate = DATE(NOW()) and pt_subtype = 0")->queryScalar();
+                    $opd = Yii::$app->db2->createCommand("SELECT COUNT(DISTINCT hn) from vn_stat WHERE vstdate = DATE(NOW()) AND vn_stat.vn NOT IN (SELECT vn FROM er_regist )and pt_subtype = 0")->queryScalar();
                     $er = Yii::$app->db2->createCommand("SELECT COUNT(DISTINCT vn) from er_regist WHERE vstdate = DATE(NOW())")->queryScalar();
                     $lab = Yii::$app->db2->createCommand("SELECT COUNT(DISTINCT hn) from lab_head WHERE order_date = DATE(NOW()) and confirm_report = 'Y'")->queryScalar();
                     $lr = Yii::$app->db2->createCommand("SELECT COUNT(DISTINCT an) from an_stat WHERE ward = 02 and dchdate is NULL")->queryScalar();

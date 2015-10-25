@@ -65,7 +65,7 @@ material\MaterialAsset::register($this);
                 ],
                 ['label' =>
                     '<span class="glyphicon glyphicon-check"></span> ตรวจสอบ 43 แฟ้ม',
-                    'url' => ['check/index']
+                    'url' => ['oppp/index']
                 ],
                 ['label' =>
                     '<span class="glyphicon glyphicon-check"></span> ตรวจสอบ QOF',

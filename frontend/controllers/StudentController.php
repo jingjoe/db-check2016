@@ -17,21 +17,24 @@ class StudentController extends Controller {
         $sql = "SELECT a.person_id  AS pid 
         ,p.cid
         ,concat(p.pname,p.fname,' ',p.lname) AS full_name
+        ,concat('บ้านเลขที่',' ',pt.addrpart,' ','หมู่',' ',pt.moopart,' ',th.full_name)AS home
         ,vs.school_name
         ,vc.village_school_class_name AS class
         ,a.last_update AS d_update
         from village_student   a
-        left outer join person p on p.person_id = a.person_id
-        left outer join house h on h.house_id = p.house_id
-        left outer join village v on v.village_id = p.village_id
-        left outer join thaiaddress t on t.addressid = v.address_id
-        left outer join village_school vs on vs.village_school_id = a.village_school_id
-        left outer join village_school_type vt on vt.school_type_id = vs.school_type_id
-        left outer join village_school_class vc on vc.village_school_class_id = a.village_school_class_id
-        left outer join village_school_room vr on vr.village_school_room_id = a.village_school_room_id
-        left outer join village ve on ve.village_id=vs.village_id
+        LEFT OUTER JOIN person p on p.person_id = a.person_id
+        LEFT OUTER JOIN house h on h.house_id = p.house_id
+        LEFT OUTER JOIN village v on v.village_id = p.village_id
+        LEFT OUTER JOIN thaiaddress t on t.addressid = v.address_id
+        LEFT OUTER JOIN village_school vs on vs.village_school_id = a.village_school_id
+        LEFT OUTER JOIN village_school_type vt on vt.school_type_id = vs.school_type_id
+        LEFT OUTER JOIN village_school_class vc on vc.village_school_class_id = a.village_school_class_id
+        LEFT OUTER JOIN village_school_room vr on vr.village_school_room_id = a.village_school_room_id
+        LEFT OUTER JOIN village ve on ve.village_id=vs.village_id
+        LEFT OUTER JOIN patient pt ON pt.cid=p.cid
+        LEFT OUTER JOIN thaiaddress th ON th.addressid=v.address_id
         where (a.discharge<>'Y' or a.discharge is null)
-        order by a.village_school_id,a.village_school_class_id,a.village_school_room_id";
+        order by a.village_school_class_id ,a.village_school_id ";
 
         $data = Yii::$app->db2->createCommand($sql)->queryAll();
         $dataProvider = new ArrayDataProvider([

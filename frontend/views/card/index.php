@@ -1,8 +1,8 @@
 
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม dental');
+$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม card');
 $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ 43 แฟ้ม', 'url' => ['oppp/index']];
-$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม dental';
+$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม card';
 
 use kartik\grid\GridView;
 use yii\helpers\Html;
@@ -10,11 +10,12 @@ use kartik\date\DatePicker;
 use yii\bootstrap\ActiveForm;
 
 ?>
+
 <div class="well">
     <div class="row">
         <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
         <div class="col-md-3">
-            ระบุวันที่   
+            ระบุวันที่  
             <?php
             echo DatePicker::widget([
                 'name' => 'date1',
@@ -31,7 +32,7 @@ use yii\bootstrap\ActiveForm;
         </div>
 
         <div class="col-md-3">
-            ถึง
+            ถึง 
             <?php
             echo DatePicker::widget([
                 'name' => 'date2',
@@ -52,10 +53,12 @@ use yii\bootstrap\ActiveForm;
             <div class="input-group">
                 <?= Html::submitButton('ประมวลผล') ?>
             </div><!-- /.input group -->
-        </div>  
+        </div> 
         <?php ActiveForm::end(); ?>
+
     </div>
 </div>
+
 <?php
 echo GridView::widget([
     'dataProvider' => $dataProvider,
@@ -79,12 +82,8 @@ echo GridView::widget([
             'class'=>'yii\grid\SerialColumn'
         ],
         [
-            'attribute' => 'hn',
-            'header' => 'HN'
-        ],
-        [
-            'attribute' => 'vn',
-            'header' => 'VN'
+            'attribute' => 'person_id',
+            'header' => 'PID'
         ],
         [
             'attribute' => 'cid',
@@ -95,14 +94,18 @@ echo GridView::widget([
             'header' => 'ชื่อ-นามสกุล'
         ],
         [
+            'attribute' => 'instype',
+            'header' => 'สิทธิการรักษา'
+        ],
+        [
             'attribute' => 'vstdate',
             'header' => 'วันรับบริการ'
-        ],  
+        ],
         [
             'label' => 'ตรวจสอบ',
             'format' => 'raw',
             'value' => function($data) use($date1,$date2) {
-                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/dental/view' ,'id'=>$data['vn'], 'date1' => $date1, 'date2' => $date2,]);
+                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/card/view' ,'id'=>$data['vn'], 'date1' => $date1, 'date2' => $date2,]);
             }// end value
         ]
 ]

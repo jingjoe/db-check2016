@@ -1,7 +1,7 @@
 
 <?php
 $this->title = Yii::t('app', 'ตรวจสอบแฟ้ม person');
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ43แฟ้ม', 'url' => ['check/index']];
+$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ 43 แฟ้ม', 'url' => ['oppp/index']];
 $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม person และ patientt', 'url' => ['person/main']];
 $this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม person';
 

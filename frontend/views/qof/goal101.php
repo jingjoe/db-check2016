@@ -59,7 +59,7 @@ echo GridView::widget([
         ],
         [
             'attribute' => 'anc_service_number',
-            'header' => 'ครรภ์ที่'
+            'header' => 'ครั้งที่'
         ],
         [
             'attribute' => 'anc_register_staff',

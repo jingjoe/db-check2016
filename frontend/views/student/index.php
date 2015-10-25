@@ -1,8 +1,7 @@
 
 <?php
 $this->title = Yii::t('app', 'ตรวจสอบแฟ้ม student');
-
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ43แฟ้ม', 'url' => ['check/index']];
+$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ 43 แฟ้ม', 'url' => ['oppp/index']];
 $this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม student';
 
 use kartik\grid\GridView;
@@ -44,6 +43,10 @@ echo GridView::widget([
             'header' => 'ชื่อ-นามสกุล'
         ],
         [
+            'attribute' => 'home',
+            'header' => 'ที่อยู่'
+        ],
+        [
             'attribute' => 'school_name',
             'header' => 'ชื่อโรงเรียน'
         ],
@@ -51,17 +54,17 @@ echo GridView::widget([
             'attribute' => 'class',
             'header' => 'ชั้นเรียน'
         ], 
-          [
+        [
             'attribute' => 'd_update',
             'header' => 'วันเวลาอัพเดท'
         ],
-        [
-            'label' => 'ตรวจสอบ',
-            'format' => 'raw',
-            'value' => function($data) {
-                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/student/view' ,'id'=>$data['pid'],]);
-            }// end value
-        ]
+//        [
+//            'label' => 'ตรวจสอบ',
+//            'format' => 'raw',
+//            'value' => function($data) {
+//                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/student/view' ,'id'=>$data['pid'],]);
+//            }// end value
+//        ]
 ]
 ]);
 

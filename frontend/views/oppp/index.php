@@ -1,6 +1,6 @@
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบ43แฟ้ม');
-$this->params['breadcrumbs'][] = 'ตรวจสอบ43แฟ้ม';
+$this->title = Yii::t('app', 'ตรวจสอบ 43 แฟ้ม');
+$this->params['breadcrumbs'][] = 'ตรวจสอบ 43 แฟ้ม';
 
 use yii\helpers\Html;
 ?>
@@ -22,12 +22,12 @@ use yii\helpers\Html;
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PERSON <span class="label label-success pull-right"> 1 </span>', ['person/main'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> ADDRESS <span class="label label-danger pull-right"> 2 </span>', ['address/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> DEATH <span class="label label-success pull-right"> 3 </span>', ['death/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CHRONIC <span class="label label-danger pull-right"> 4 </span>', ['chronic/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CARD <span class="label label-danger pull-right"> 5 </span>', ['card/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CHRONIC <span class="label label-success pull-right"> 4 </span>', ['chronic/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CARD <span class="label label-success pull-right"> 5 </span>', ['card/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> HOME <span class="label label-danger pull-right"> 6 </span>', ['home/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> VILLAGE <span class="label label-danger pull-right"> 7 </span>', ['village/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> DISABILITY <span class="label label-danger pull-right"> 8 </span>', ['disability/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PROVIDER <span class="label label-danger pull-right"> 9 </span>', ['provider/index'], ['class' => 'list-group-item']); ?> 
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PROVIDER <span class="label label-success pull-right"> 9 </span>', ['provider/index'], ['class' => 'list-group-item']); ?> 
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> WOMEN <span class="label label-danger pull-right"> 10 </span>', ['women/index'], ['class' => 'list-group-item']); ?> 
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> DRUGALLERGY <span class="label label-danger pull-right"> 11 </span>', ['drugallergy/index'], ['class' => 'list-group-item']); ?> 
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> FUNCTIONAL <span class="label label-danger pull-right"> 12 </span>', ['functional/index'], ['class' => 'list-group-item']); ?> 
@@ -76,10 +76,10 @@ use yii\helpers\Html;
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PRENATAL <span class="label label-danger pull-right"> 33 </span>', ['prenatal/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> ANC <span class="label label-danger pull-right"> 34 </span>', ['anc/index'], ['class' => 'list-group-item']); ?> 
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> LABOR <span class="label label-danger pull-right"> 35 </span>', ['labor/index'], ['class' => 'list-group-item']); ?> 
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> POSTNATAL <span class="label label-danger pull-right"> 36 </span>', ['postnatal/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> NEWBORN <span class="label label-danger pull-right"> 37 </span>', ['newborn/index'], ['class' => 'list-group-item']); ?> 
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> NEWBORNCARE <span class="label label-danger pull-right"> 38 </span>', ['newborncare/index'], ['class' => 'list-group-item']); ?> 
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> EPI <span class="label label-danger pull-right"> 39 </span>', ['epi/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> POSTNATAL <span class="label label-success pull-right"> 36 </span>', ['postnatal/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> NEWBORN <span class="label label-success pull-right"> 37 </span>', ['newborn/index'], ['class' => 'list-group-item']); ?> 
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> NEWBORNCARE <span class="label label-success pull-right"> 38 </span>', ['newborncare/index'], ['class' => 'list-group-item']); ?> 
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> EPI <span class="label label-success pull-right"> 39 </span>', ['epi/main'], ['class' => 'list-group-item']); ?>
                     </ul>
                 </div>
             </div>
@@ -91,10 +91,10 @@ use yii\helpers\Html;
                 <div class="box-header with-border"></div>
                 <div class="box-body no-padding">
                     <ul class="nav nav-pills nav-stacked">
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> NUTRITION <span class="label label-danger pull-right"> 40 </span>', ['nutrition/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> SPECIALPP  <span class="label label-danger pull-right"> 41 </span>', ['specialpp/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> COMMUNITY-ACTIVITY <span class="label label-danger pull-right"> 42 </span>', ['communityactivity/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> COMMUNITY-SERIVER <span class="label label-danger pull-right"> 43 </span>', ['communityservice/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> NUTRITION <span class="label label-success pull-right"> 40 </span>', ['nutrition/main'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> SPECIALPP  <span class="label label-success pull-right"> 41 </span>', ['specialpp/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> COMMUNITY-ACTIVITY <span class="label label-success pull-right"> 42 </span>', ['communityact/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> COMMUNITY-SERIVER <span class="label label-success pull-right"> 43 </span>', ['communityserv/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CARE-REFER <span class="label label-danger pull-right"> 44 </span>', ['carerefer/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> CLINICAL-REFER <span class="label label-danger pull-right"> 45 </span>', ['clinicalrefer/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> DRUG-REFER <span class="label label-danger pull-right"> 46 </span>', ['drugrefer/index'], ['class' => 'list-group-item']); ?>

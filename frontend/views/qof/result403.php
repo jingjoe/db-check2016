@@ -1,15 +1,15 @@
 
 <?php
-$this->title = Yii::t('app', 'ผลงานหญิงมีครรภ์ได้รับการฝากครรภ์ครบ 5 ครั้งตามเกณฑ์');
+$this->title = Yii::t('app', 'ผลงานเด็กนักเรียน ป. 1 ได้รับบริการเคลือบหลุมร่องฟัน');
 $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ qof', 'url' => ['qof/index']];
-$this->params['breadcrumbs'][] = ['label' => 'หญิงมีครรภ์ได้รับการฝากครรภ์ครบ 5 ครั้งตามเกณฑ์', 'url' => ['qof/rep1_2']];
+$this->params['breadcrumbs'][] = ['label' => 'เด็กนักเรียน ป. 1 ได้รับบริการเคลือบหลุมร่องฟันในฟันกรามแท้ซี่ที่หนึ่ง', 'url' => ['qof/rep4_3']];
 
 use kartik\grid\GridView;
 use yii\helpers\Html;
 
 ?>
 <div class="alert alert-primary">
-     <h4><font color="#FFFF00">ผลงานหญิงมีครรภ์ได้รับการฝากครรภ์ครบ 5 ครั้งตามเกณฑ์</font></h4>
+     <h4><font color="#FFFF00">เด็กนักเรียน ป. 1 ได้รับบริการเคลือบหลุมร่องฟัน</font></h4>
 </div>
 <?php
 echo GridView::widget([
@@ -50,31 +50,24 @@ echo GridView::widget([
             'header' => 'อายุ/ปี'
         ],
         [
-            'attribute' => 'home',
-            'header' => 'ที่อยู่'
+            'attribute' => 'class',
+            'header' => 'ชั้นเรียน'
         ],
         [
-            'attribute' => 'date1',
-            'header' => 'ครั้งที่1'
+            'attribute' => 'school',
+            'header' => 'โรงเรียน'
+        ],
+       
+        [
+            'attribute' => 'vstdate',
+            'header' => 'วันรับบริการ'
         ],
         [
-            'attribute' => 'date2',
-            'header' => 'ครั้งที่2'
+            'attribute' => 'icd10tm',
+            'header' => 'ICD10TM'
         ],
         [
-            'attribute' => 'date3',
-            'header' => 'ครั้งที่3'
-        ],
-        [
-            'attribute' => 'date4',
-            'header' => 'ครั้งที่4'
-        ],
-        [
-            'attribute' => 'date5',
-            'header' => 'ครั้งที่5'
-        ],
-        [
-            'attribute' => 'anc_register_staff',
+            'attribute' => 'doc_name',
             'header' => 'ผู้ให้บริการ'
         ]
     ]
