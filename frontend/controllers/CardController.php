@@ -20,8 +20,7 @@ class CardController extends Controller {
             $date1 = $_POST['date1'];
             $date2 = $_POST['date2'];
         }
-          
-        
+
         $sql = "SELECT p.person_id ,p.cid ,CONCAT(p.pname,p.fname,' ',p.lname) AS full_name
         ,v.vstdate
         ,v.vn

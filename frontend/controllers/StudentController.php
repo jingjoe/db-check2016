@@ -69,12 +69,7 @@ class StudentController extends Controller {
         left outer join village_school_class vc on vc.village_school_class_id = a.village_school_class_id
         left outer join village_school_room vr on vr.village_school_room_id = a.village_school_room_id
         left outer join village ve on ve.village_id=vs.village_id
-        where a.person_id ='$id' and (a.discharge<>'Y' or a.discharge is null)
-        and (a.person_id='' or a.person_id is null  
-        or ve.address_id='' or ve.address_id is null  
-        or a.village_school_id='' or a.village_school_id is null 
-        or a.village_school_class_id='' or a.village_school_class_id is null 
-        or p.cid='' or p.cid is null)  
+        where a.person_id ='$id' and (a.discharge<>'Y' or a.discharge is null) 
         order by a.village_school_id,a.village_school_class_id,a.village_school_room_id";
         
         $data = Yii::$app->db2->createCommand($sql)->queryAll();

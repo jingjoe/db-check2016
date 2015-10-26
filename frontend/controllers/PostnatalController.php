@@ -67,10 +67,10 @@ class PostnatalController extends Controller {
         LEFT OUTER JOIN person_anc pa ON pa.person_anc_id=pas.person_anc_id
         LEFT OUTER JOIN person p ON p.person_id=pa.person_id
         LEFT OUTER JOIN ovst_seq o ON o.vn=pas.vn
-        WHERE pas.anc_service_date BETWEEN '$date1' AND '$date1'
+        WHERE pas.anc_service_date BETWEEN '$date1' AND '$date2'
         AND pas.person_anc_service_id='$id'
-        AND (p.person_id is null  or p.person_id= ''
-        OR pa.preg_no is null or pa.preg_no= '' 
+        AND (p.person_id is null  or p.person_id = ''
+        OR pa.preg_no is null or pa.preg_no = '' 
         OR pa.labor_date  is null or pa.labor_date =''
         OR pa.post_labor_service1_date is null or pa.post_labor_service1_date='') ";
         

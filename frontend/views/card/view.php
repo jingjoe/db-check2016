@@ -1,9 +1,9 @@
 
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม postnatal รายบุคคล');
+$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม card รายบุคคล');
 $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ 43 แฟ้ม', 'url' => ['oppp/index']];
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม postnatal', 'url' => ['postnatal/index']];
-$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม postnatal รายบุคคล';
+$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม card', 'url' => ['card/index']];
+$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม card รายบุคคล';
 
 use yii\helpers\Html;
 
@@ -16,8 +16,8 @@ use yii\helpers\Html;
 <div class="alert alert-primary">
     <h3 class="box-title"> 
         ชื่อ-นามสกุล : <font color="#F7FE2E"><?php echo $chk['full_name']; ?></font> &nbsp; &nbsp;  
-        PID : <font color="#F7FE2E"><?php echo $chk['pid']; ?></font> &nbsp; &nbsp; 
-        วันดูแลมารดา : <font color="#F7FE2E"><?php echo $chk['ppcare']; ?></font></h3>
+        CID : <font color="#F7FE2E"><?php echo $chk['cid']; ?></font> &nbsp; &nbsp; 
+        วัน/เวลารับบริการ : <font color="#F7FE2E"><?php echo $chk['vstdate']; ?></font></h3>
 </div><!-- /.box-header -->
 
 <div class="box box-solid">                     
@@ -65,11 +65,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>3</td>
-                        <th scope="row"><code>SEQ [ลำดับที่]</code></th>
-                        <td><?php echo $chk['seq']; ?></td>
+                        <th scope="row"><code>INSTYPE_OLD [ประเภทสิทธิการรักษา (รหัสเดิม)]</code></th>
+                        <td><?php echo $chk['instype_old']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['seq'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบลำดับที่ SEQ [ลำดับที่ของการบริการที่กำหนดโดยโปรแกรมเรียงลำดับโดยไม่ซ้ำกัน สำหรับการมารับ บริการแต่ละครั้ง (visit) หมายเหตุ : ในกรณีที่มารับบริการ (visit) หลายคลินิคใน 1 ครั้งให้มีลำดับการให้บริการ]';
+                            if ($chk['instype_old'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบรหัสสิทธิมาตรฐาน เดิม';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -78,11 +78,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>4</td>
-                        <th scope="row"><code>GRAVIDA [ครรภ์ที่]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['grvida']; ?></td>
+                        <th scope="row"><code>INSTYPE_NEW [ประเภทสิทธิการรักษา]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
+                        <td><?php echo $chk['instype_new']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['grvida'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบครรภ์ที่ [การตั้งครรภ์ครั้งที่กรอกเป็นตัวเลข เช่น ครรภ์ที่ 1,2,10 เป็นต้น]';
+                            if ($chk['instype_new'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบประเภทสิทธิการรักษา [รหัสสิทธิมาตรฐานที􀀦กำหนดโดยหน่วยงานที่เกี่ยวข้อง]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -91,11 +91,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>5</td>
-                        <th scope="row"><code>BDATE [วันคลอด/วันสิ้นสุดการตั้งครรภ์]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['bdate']; ?></td>
+                        <th scope="row"><code>INSID [เลขที่บัตรสิทธิ]</code></th>
+                        <td><?php echo $chk['insid']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['bdate'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันคลอด/วันสิ้นสุดการตั้งครรภ์ [วันเดือนปีที่คลอด / วันสิน้สุดการตั้งครรภ์ กำหนดเป็น ค.ศ.(YYYYMMDD)]';
+                            if ($chk['insid'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบหมายเลขของบัตร ตามประเภทสิทธิการรักษา';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -104,24 +104,24 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>6</td>
-                        <th scope="row"><code>PPCARE [วันที่ดูแลแม่]</code></th>
-                        <td><?php echo $chk['ppcare']; ?></td>
+                        <th scope="row"><code>STARTDATE [วันที่ออกบัตร]</code></th>
+                        <td><?php echo $chk['startdate']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['ppcare'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันที่ดูแลแม่ [วันเดือนปีที่ได้รับการดูแลแม่หลังคลอด กำหนดเป็น ค.ศ. (YYYYMMDD) หมายเหตุ : กรณีที่บันทีกข้อมูลย้อนหลัง ให้เปลี่ยนวันกลับเป็นวันที่รับบริการจริง]';
+                            if ($chk['startdate'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันเดือนปีที่ออกบัตร กำหนดเป็น ค.ศ. (YYYYMMDD)';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
                             ?> 
                             </fotn></td>
-                    </tr>     
+                    </tr>
                     <tr>
                         <td>7</td>
-                        <th scope="row"><code>PPPLACE [รหัสสถานพยาบาลที่ดูแลแม่]</code></th>
-                        <td><?php echo $chk['ppplace']; ?></td>
+                        <th scope="row"><code>EXPIREDATE [วันที่หมดอายุ]</code></th>
+                        <td><?php echo $chk['exppiredate']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['ppplace'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบรหัสสถานพยาบาลที่ดูแลแม่ 5 หลัก [รหัสสถานพยาบาลที่ให้บริการ ตามรหัสมาตรฐาน สนย.]';
+                            if ($chk['exppiredate'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันเดือนปีที่บัตรหมดอายุ กำหนดเป็น ค.ศ. (YYYYMMDD)';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -130,24 +130,25 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>8</td>
-                        <th scope="row"><code>PPRESULT [ผลการตรวจมารดาหลังคลอด]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['ppresult']; ?></td>
+                        <th scope="row"><code>MAIN [สถานบริการหลัก]</code></th>
+                        <td><?php echo $chk['main']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['ppresult'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบผลการตรวจมารดาหลังคลอด [1=ปกติ, 2=ผิดปกติ, 9 = ไม่ทราบ]';
+                            if ($chk['main'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบรหัสสถานพยาบาลหลัก [รหัสสถานพยาบาลหลักคู่สัญญา กรณี หลักประกันสุขภาพถ้วนหน้า และประกันสังคมตามมาตรฐานสำนักนโยบายและยุทธศาสตร์หมายเหตุ : บันทึกกรณีประเภทสิทธิการรักษา เป็นสิทธิ UC';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
-                            ?>      
+                            ?> 
                             </fotn></td>
                     </tr>
                     <tr>
                         <td>9</td>
-                        <th scope="row"><code>PROVIDER [เลขที่ผู้ให้บริการ]</code></th>
-                        <td><?php echo $chk['provider']; ?></td>
+                        <th scope="row"><code>SUB [สถานบริการรอง]</code></th>
+                        <td><?php echo $chk['sub_spclty']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['provider'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบเลขที่ผู้ให้บริการ [เลขที่ผู้ให้บริการ ออกโดยโปรแกรม ไม่ซ้ำกันในสถานพยาบาลเดียวกัน]';
+                            if ($chk['sub_spclty'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบรหัสสถานพยาบาลรอง [รหัสสถานพยาบาลปฐมภูมิ กรณี หลักประกันสุขภาพถ้วนหน้า และสถานพยาบาลใน
+                                เครือข่าย 1 แห่ง (ถ้ามี) สำหรับประกันสังคม ตามมาตรฐานจาก สำนักนโยบายและยุทธศาสตร์หมายเหตุ : บันทึกกรณีประเภทสิทธิการรักษา เป็นสิทธิ UC]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }

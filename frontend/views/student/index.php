@@ -58,13 +58,13 @@ echo GridView::widget([
             'attribute' => 'd_update',
             'header' => 'วันเวลาอัพเดท'
         ],
-//        [
-//            'label' => 'ตรวจสอบ',
-//            'format' => 'raw',
-//            'value' => function($data) {
-//                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/student/view' ,'id'=>$data['pid'],]);
-//            }// end value
-//        ]
+        [
+            'label' => 'ตรวจสอบ',
+            'format' => 'raw',
+            'value' => function($data) {
+                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/student/view' ,'id'=>$data['pid'],]);
+            }// end value
+        ]
 ]
 ]);
 
