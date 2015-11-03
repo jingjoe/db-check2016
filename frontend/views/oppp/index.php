@@ -71,9 +71,9 @@ use yii\helpers\Html;
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> APPOINTMENT  <span class="label label-danger pull-right"> 28 </span>', ['appointment/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> DENTAL <span class="label label-success pull-right"> 29 </span>', ['dental/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> REHABILITATION <span class="label label-danger pull-right"> 30 </span>', ['rehabilitaation/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> NCDSCREEN <span class="label label-danger pull-right"> 31 </span>', ['ncdscreen/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> FP <span class="label label-danger pull-right"> 32 </span>', ['fp/index'], ['class' => 'list-group-item']); ?>
-                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PRENATAL <span class="label label-danger pull-right"> 33 </span>', ['prenatal/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> NCDSCREEN <span class="label label-success pull-right"> 31 </span>', ['ncdscreen/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> FP <span class="label label-success pull-right"> 32 </span>', ['fp/index'], ['class' => 'list-group-item']); ?>
+                        <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> PRENATAL <span class="label label-success pull-right"> 33 </span>', ['prenatal/index'], ['class' => 'list-group-item']); ?>
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> ANC <span class="label label-success pull-right"> 34 </span>', ['anc/index'], ['class' => 'list-group-item']); ?> 
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> LABOR <span class="label label-success pull-right"> 35 </span>', ['labor/index'], ['class' => 'list-group-item']); ?> 
                         <?php echo Html::a('<i class="glyphicon glyphicon-check"></i> POSTNATAL <span class="label label-success pull-right"> 36 </span>', ['postnatal/index'], ['class' => 'list-group-item']); ?>
