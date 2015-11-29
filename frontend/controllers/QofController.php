@@ -892,7 +892,7 @@ class QofController extends Controller {
             $date2 = $_POST['date2'];
         }
           
-        $sql = "select h.name AS hos_name,count(DISTINCT v.vn) AS b ,'4106' AS a
+        $sql = "select h.name AS hos_name,count(DISTINCT v.hn) AS b ,'4,108' AS a
         from vn_stat   v
         inner join pttype pt ON pt.pttype=v.pttype
         INNER JOIN hospcode h ON h.hospcode=v.hospmain
@@ -901,7 +901,7 @@ class QofController extends Controller {
         AND v.hospmain='11347'
 
         UNION
-        select h.name AS hos_name,count(DISTINCT v.vn) AS b ,'639' AS a
+        select h.name AS hos_name,count(DISTINCT v.hn) AS b ,'637' AS a
         from vn_stat   v
         inner join pttype pt ON pt.pttype=v.pttype
         INNER JOIN hospcode h ON h.hospcode=v.hospmain
@@ -910,7 +910,7 @@ class QofController extends Controller {
         AND v.hospmain ='09070'
 
         UNION
-        select h.name AS hos_name,count(DISTINCT v.vn) AS b ,'2314' AS a
+        select h.name AS hos_name,count(DISTINCT v.hn) AS b ,'2,319' AS a
         from vn_stat   v
         inner join pttype pt ON pt.pttype=v.pttype
         INNER JOIN hospcode h ON h.hospcode=v.hospmain
@@ -919,7 +919,7 @@ class QofController extends Controller {
         AND v.hospmain='09069'
 
         UNION
-        select h.name AS hos_name,count(DISTINCT v.vn) AS b ,'4210' AS a
+        select h.name AS hos_name,count(DISTINCT v.hn) AS b ,'4,220' AS a
         from vn_stat   v
         inner join pttype pt ON pt.pttype=v.pttype
         INNER JOIN hospcode h ON h.hospcode=v.hospmain
@@ -2575,7 +2575,7 @@ class QofController extends Controller {
         return $this->render('result403', ['dataProvider' => $dataProvider]);       
     } 
     
-//5.1 ร้อยละหน่วยบริการปฐมภูมิ(รพ.สต.)ที่มีแพทย์แผนไทยปฏิบัติงานประจำและมีการสั่งใช้ยาสมุนไพรพื้นฐานมากกว่า 5 รายการ
+//5.1 ร้อยละหน่วยบริการปฐมภูมิ(รพ.สต.)ที่มีแพทย์แผนไทยปฏิบัติงานประจำและมีการสั่งใช้ยาสมุนไพรพื้นฐานมากกว่า 10 รายการ
     public function actionRep5_1() {
         
         $date1 = "2015-04-01";
@@ -2586,17 +2586,16 @@ class QofController extends Controller {
         }
           
         $sql = "select d.icode,d.name,d.strength,d.units,d.did,COUNT(d.icode) AS cc_drug
-        from  health_med_service hs
-        inner join health_med_service_medication   hm   on hm.health_med_service_id=hs.health_med_service_id
-        inner join drugitems d on d.icode=hm.icode
-        inner join vn_stat v on v.vn=hs.vn
+        from  opitemrece o
+        inner join drugitems d on d.icode=o.icode
+        inner join vn_stat v on v.vn=o.vn
         inner join pttype p on p.pttype=v.pttype
         inner join pttype_spp ps on ps.pttype_spp_id=p.pttype_spp_id
-        WHERE   hs.service_date between '$date1' AND '$date2'
+        WHERE v.vstdate between '$date1' AND '$date2'
         AND (d.did LIKE '41%' OR d.did LIKE '42%')
         AND  p.pttype_spp_id in ('3','4')
         GROUP BY  d.icode";
-        
+
         $data = Yii::$app->db2->createCommand($sql)->queryAll();
         $dataProvider = new ArrayDataProvider([
             'allModels'=>$data,
