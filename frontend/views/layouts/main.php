@@ -32,7 +32,7 @@ material\MaterialAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'HOSPITAL-MIS',
+        'brandLabel' => 'CHK-OPPP',
         //'brandLabel' => Html::img('@web/images/logo.png', ['alt'=>Yii::$app->name]),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [

@@ -6,12 +6,12 @@ use miloschuman\highcharts\Highcharts;
 use yii\helpers\Html;
 
 
-$this->title = 'Hospital Management Information Systems';
+$this->title = 'CHK-OPPP2016';
 ?>
 <div class="site-index">
     <div class="well">
-        <h1>HMIS</h1>
-        <p class="lead">Hospital Management Information Systems</p>
+        <h1>CHK-OPPP</h1>
+        <p class="lead">ระบบตรวจสอบ 43 แฟ้ม และ QOF ปีงบประมาณ 2559</p>
         <p><a class="btn btn-lg btn-success" <?= Html::a('Website Hospital', 'http://kohyaohos.pngo.moph.go.th/', ['target' => '_blank']) ?> </p>
     </div>
 
