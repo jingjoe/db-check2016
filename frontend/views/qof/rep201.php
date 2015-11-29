@@ -67,7 +67,7 @@ echo GridView::widget([
     'panel' => [
         'type' => GridView::TYPE_DEFAULT,
         //'before' => Html::a('<i class="glyphicon glyphicon-repeat"></i> Reload', ['/dental/index'], ['class' => 'btn btn-info']),
-        'after' => 'จำนวนประชากรสิทธิ UC ของหน่วยบริการ ที่มา : สำนักบริหารงานทะเบียนหลักประกันสุขภาพ สำนักงานหลักประกันสุขภาพแห่งชาติ ข้อมูล ณ วันที่ : ก.ย. 2558 ',
+        'after' => 'จำนวนประชากรสิทธิ UC ของหน่วยบริการ ที่มา : สำนักบริหารงานทะเบียนหลักประกันสุขภาพ สำนักงานหลักประกันสุขภาพแห่งชาติ ข้อมูล ณ วันที่ : ต.ค. 2558 ',
     ],
     'responsive' => true,
     'hover' => true,
@@ -92,7 +92,7 @@ echo GridView::widget([
         ],
          [
             'attribute' => 'b',
-            'header' => 'รับบริการ (ครั้ง)'
+            'header' => 'รับบริการ (คน)'
         ]
     ]
 ]);

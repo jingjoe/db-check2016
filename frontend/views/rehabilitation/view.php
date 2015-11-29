@@ -1,9 +1,9 @@
 
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม labor รายบุคคล');
+$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม rehabilitation รายบุคคล');
 $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ 43 แฟ้ม', 'url' => ['oppp/index']];
-$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบกลุ่มแฟ้ม labor', 'url' => ['labor/index']];
-$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม labor รายบุคคล';
+$this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบแฟ้ม rehabilitation', 'url' => ['rehabilitation/index']];
+$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม rehabilitation รายบุคคล';
 
 use yii\helpers\Html;
 
@@ -16,8 +16,8 @@ use yii\helpers\Html;
 <div class="alert alert-primary">
     <h3 class="box-title"> 
         ชื่อ-นามสกุล : <font color="#F7FE2E"><?php echo $chk['full_name']; ?></font> &nbsp; &nbsp;  
-        PID : <font color="#F7FE2E"><?php echo $chk['pid']; ?></font> &nbsp; &nbsp; 
-        วัน/เวลารับบริการ : <font color="#F7FE2E"><?php echo $chk['bdate']; ?></font></h3>
+        CID : <font color="#F7FE2E"><?php echo $chk['pid']; ?></font> &nbsp; &nbsp; 
+        วัน/เวลารับบริการ : <font color="#F7FE2E"><?php echo $chk['date_serv']; ?></font></h3>
 </div><!-- /.box-header -->
 
 <div class="box box-solid">                     
@@ -65,24 +65,24 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>3</td>
-                        <th scope="row"><code>GRAVIDA [ครรภ์ที่]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['gravida']; ?></td>
+                        <th scope="row"><code>SEQ [ลำดับที่]</code></th>
+                        <td><?php echo $chk['seq']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['gravida'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบการตั้งครรภ์ครั้งที่กรอกเป็นตัวเลข ครรภ์ที่[การตั้งครรภ์ครั้งที่กรอกเป็นตัวเลข เช่น ครรภ์ที่ 1,2,10 เป็นต้น]';
+                            if ($chk['seq'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบลำดับที่ของการให้บริการ [ลำดับที่ของการบริการที่กำหนดโดยโปรแกรมเรียงลำดับโดยไม่ซ้ำกัน สำหรับการมารับบริการแต่ละครั้ง (visit)หมายเหตุ : ในกรณีที่มารับบริการ (visit) หลายคลินิคใน 1 ครั้ง ให้มีลำดับการให้บริการเป็นตัวเลข เดียวกัน]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
                             ?> 
                             </fotn></td>
-                    </tr>
+                    </tr>     
                     <tr>
                         <td>4</td>
-                        <th scope="row"><code>LMP [วันแรกของการมีประจำเดือนครั้งสุดท้าย]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['lmp']; ?></td>
+                        <th scope="row"><code>AN [เลขที่ผู้ป่วยใน]</code></th>
+                        <td><?php echo $chk['an']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['lmp'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันแรกของการมีประจำเดือนครั้งสุดท้าย [วันแรกของการมีประจำเดือนครั้ง สุดท้าย กำหนดเป็น ค.ศ.(YYYYMMDD)]';
+                            if ($chk['an'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบเลขที่ผู้ป่วยใน AN [เลขที่ผู้ป่วยใน (AN) กรณีเป็นผู้ป่วยใน]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -91,24 +91,24 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>5</td>
-                        <th scope="row"><code>EDC [วันที่กำหนดคลอด]</code></th>
-                        <td><?php echo $chk['edc']; ?></td>
+                        <th scope="row"><code>DATE_ADMIT [วันที่รับผู้ป่วยไว้ในโรงพยาบาล]</code></th>
+                        <td><?php echo $chk['date_admit']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['edc'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันที่กำหนดคลอด [วันเดือนปี ที่กำหนดคลอด กำหนดเป็น ค.ศ. (YYYYMMDD)]';
+                            if ($chk['date_admit'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันเดือนปีที่มารับผู้ป่วยไว้ในโรงพยาบาล [วันเดือนปีที่มารับผู้ป่วยไว้ในโรงพยาบาล กำหนดเป็น ค.ศ.(YYYYMMDDHHMMSS)กรณีเป็นผู้ป่วยในให้ใช้วันที่ DATE_SERV ใน SERVICE หมายเหตุ : กรณีที่บันทีกข้อมูลย้อนหลัง ให้เปลี่ยนวันกลับเป็นวันที่รับบริการจริง]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
                             ?> 
                             </fotn></td>
                     </tr>
-                    <tr>
+                          <tr>
                         <td>6</td>
-                        <th scope="row"><code>BDATE [วันคลอด/วันสิ้นสุดการตั้งครรภ์]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['bdate']; ?></td>
+                        <th scope="row"><code>DATE_SERV [วันที่ให้บริการ]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
+                        <td><?php echo $chk['date_serv']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['bdate'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันคลอด/วันสิ้นสุดการตั้งครรภ์[วันเดือนปีที่คลอด / วันสิ้นสุดการตั้งครรภ์ กำหนดเป็น ค.ศ.(YYYYMMDD)]';
+                            if ($chk['date_serv'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันที่ให้บริการ [วันเดือนปีที่มารับบริการ กำหนดเป็น ค.ศ.(YYYYMMDD)หมายเหตุ : กรณีที่บันทีกข้อมูลย้อนหลัง ให้เปลี่ยนวันกลับเป็นวันที่รับบริการจริง]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -117,11 +117,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>7</td>
-                        <th scope="row"><code>BRESULT [ผลสิ้นสุดการตั้งครรภ์]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['bresult']; ?></td>
+                        <th scope="row"><code>DATE_START [วันที่เริ่มรับบริการฟื้นฟูผู้ป่วยใน]</code></th>
+                        <td><?php echo $chk['date_start']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['bresult'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบการให้รหัสโรค ICD-10 [รหัสโรค ICD - 10 TM]';
+                            if ($chk['date_start'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันที่เริ่มรับบริการฟื้นฟูผู้ป่วยใน[วันเดือนปีที่เริ่มรับบริการฟื้นฟูสภาพ กรณีให้บริการต่อเนื่องแผนกผู้ป่วยในหมายเหตุ : กรณีที่บันทีกข้อมูลย้อนหลัง ให้เปลี่ยนวันกลับเป็นวันที่รับบริการจริง]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -130,11 +130,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>8</td>
-                        <th scope="row"><code>BPLACE [สถานที่คลอด]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['bplace']; ?></td>
+                        <th scope="row"><code>DATE_FINISH [วันที่สิ้นสุดบริการฟื้นฟู ผู้ป่วยใน]</code></th>
+                        <td><?php echo $chk['date_finish']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['bplace'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบสถานที่คลอด [1=โรงพยาบาล, 2=สถานีอนามัย, 3=บ้าน, 4=ระหว่างทาง, 5=อื่นๆ]';
+                            if ($chk['date_finish'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวันที่สิ้นสุดบริการฟื้นฟู ผู้ป่วยใน [วันเดือนปีที่สิ้นสุดบริการฟื้นฟูสภาพ กรณีให้บริการต่อเนื่องแผนกผู้ป่วยใน]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -143,11 +143,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>9</td>
-                        <th scope="row"><code>BHOSP [รหัสสถานพยาบาลที่คลอด]</code></th>
-                        <td><?php echo $chk['bhosp']; ?></td>
+                        <th scope="row"><code>REHABCODE [รหัสบริการฟื้นฟูสมรรถภาพ]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
+                        <td><?php echo $chk['rehabocde']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['bhosp'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบรหัสสถานพยาบาลที่คลอด [รหัสมาตรฐานจาก สำนักนโยบายและยุทธศาสตร์]';
+                            if ($chk['rehabocde'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบรหัสบริการฟื้นฟูสมรรถภาพ[รหัสบริการฟื้นฟูสภาพที่ได้รับ]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -156,11 +156,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>10</td>
-                        <th scope="row"><code>BTYPE [วิธีการคลอด/สิ้นสุดการตั้งครรภ์]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['btype']; ?></td>
+                        <th scope="row"><code>AT_DEVICE [รหัสกายอุปกรณ์ที่ได้รับ]</code></th>
+                        <td><?php echo $chk['at_device']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['btype'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบวิธีการคลอด/สิ้นสุดการตั้งครรภ์ [1 = NORMAL, 2 = CESAREAN, 3 = VACUUM, 4 = FORCEPS,5 = ท่าก้น, 6 = ABORTION]';
+                            if ($chk['at_device'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบจำนวนกายอุปกรณ์ที่ได้รับ [รหัสกายอุปกรณ์เครื่องช่วยคนพิการที่ได้รับ]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -169,11 +169,11 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>11</td>
-                        <th scope="row"><code>BDOCTOR [ประเภทของผู้ทำคลอด]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['bdoctor']; ?></td>
+                        <th scope="row"><code>AT_NO [จำนวนกายอุปกรณ์ที่ได้รับ]</code></th>
+                        <td><?php echo $chk['at_no']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['bdoctor'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบประเภทของผู้ทำคลอด [1 = แพทย์, 2 = พยาบาล,3 = จนท.สาธารณสุข(ที่ไม่ใช่แพทย์ พยาบาล),4 = ผดุงครรภ์โบราณ, 5 = คลอดเอง, 6 = อื่นๆ]';
+                            if ($chk['at_no'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบจำนวนกายอุปกรณ์ที่ได้รับ [จำนวนกายอุปกรณ์ที่ได้รับ (ชิ้น)]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
@@ -182,24 +182,24 @@ use yii\helpers\Html;
                     </tr>
                     <tr>
                         <td>12</td>
-                        <th scope="row"><code>LBORN [จำนวนเกิดมีชีพ]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['lborn']; ?></td>
+                        <th scope="row"><code>REHABPLACE [สถานที่รับบริการ]</code></th>
+                        <td><?php echo $chk['rehabplace']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['lborn'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบจำนวนเกิดมีชีพ [จำนวนเด็กเกิดมีชีพจากการคลอด ไม่มีให้ใส่ 0]';
+                            if ($chk['rehabplace'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบสถานที่รับบริการ [รหัสสถานพยาบาลที่ให้บริการ ตามรหัสมาตรฐาน สนย.]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }
-                            ?>      
+                            ?> 
                             </fotn></td>
                     </tr>
                     <tr>
                         <td>13</td>
-                        <th scope="row"><code>SBORN [จำนวนตายคลอด]<font color="#04B404">*ใส่ข้อมูล</font></code></th>
-                        <td><?php echo $chk['sborn']; ?></td>
+                        <th scope="row"><code>PROVIDER [เลขที่ผู้ให้บริการ]</code></th>
+                        <td><?php echo $chk['provider']; ?></td>
                         <td><font color="red"><?php
-                            if ($chk['sborn'] == NULL) {
-                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบจำนวนตายคลอด [จำนวนเด็กเกิดมีชีพจากการคลอด ไม่มีให้ใส่ 0]';
+                            if ($chk['provider'] == NULL) {
+                                echo Html::img('@web/images/no.png'), ' ', 'ตรวจสอบเลขที่ผู้ให้บริการ [เลขทีผู้ให้บริการ ออกโดยโปรแกรม ไม่ซ้ำกันในสถานพยาบาลเดียวกัน]';
                             } else {
                                 echo Html::img('@web/images/yes.png');
                             }

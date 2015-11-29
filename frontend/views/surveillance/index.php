@@ -1,8 +1,8 @@
 
 <?php
-$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม labor');
+$this->title = Yii::t('app', 'ตรวจสอบแฟ้ม surveillance');
 $this->params['breadcrumbs'][] = ['label' => 'ตรวจสอบ 43 แฟ้ม', 'url' => ['oppp/index']];
-$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม labor';
+$this->params['breadcrumbs'][] = 'ตรวจสอบแฟ้ม surveillance';
 
 use kartik\grid\GridView;
 use yii\helpers\Html;
@@ -86,42 +86,30 @@ echo GridView::widget([
             'header' => 'PID'
         ],
         [
-            'attribute' => 'cid',
-            'header' => 'เลข 13 หลัก'
-        ],
-        [
             'attribute' => 'full_name',
             'header' => 'ชื่อ-นามสกุล'
         ],
         [
-            'attribute' => 'gravida',
-            'header' => 'ครรภ์ที่'
+            'attribute' => 'date_serv',
+            'header' => 'วันรับบริการ'
         ],
         [
-            'attribute' => 'lmp',
-            'header' => 'LMP'
+            'attribute' => 'diagcode',
+            'header' => 'รหัสวินิจฉัย'
         ],
         [
-            'attribute' => 'edc',
-            'header' => 'EDC'
+            'attribute' => 'code506',
+            'header' => 'รหัส R506'
+        ],
+        [
+            'attribute' => 'provider',
+            'header' => 'ผู้ให้บริการ'
         ], 
-        [
-            'attribute' => 'bdate',
-            'header' => 'วันคลอด'
-        ], 
-        [
-            'attribute' => 'bresult',
-            'header' => 'ICD-10'
-        ],
-        [
-            'attribute' => 'd_update',
-            'header' => 'วันอับเดท'
-        ],
         [
             'label' => 'ตรวจสอบ',
             'format' => 'raw',
             'value' => function($data) use($date1,$date2) {
-                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/labor/view' ,'id'=>$data['id'], 'date1' => $date1, 'date2' => $date2,]);
+                return  Html::a('<i class="glyphicon glyphicon-ok"></i>',['/surveillance/view' ,'id'=>$data['id'], 'date1' => $date1, 'date2' => $date2,]);
             }// end value
         ]
 ]

@@ -43,7 +43,6 @@ class AncController extends Controller {
         OR pas.anc_service_date is null or pas.anc_service_date= '' 
         OR pa.preg_no is null or pa.preg_no =''
         OR pas.pa_week is null or pas.pa_week=''
-        OR ao.anc_result is null or ao.anc_result=''
         OR pa.last_update is null or pa.last_update='')";
         
         $data = Yii::$app->db2->createCommand($sql)->queryAll();
@@ -84,7 +83,6 @@ class AncController extends Controller {
         OR pas.anc_service_date is null or pas.anc_service_date= '' 
         OR pa.preg_no is null or pa.preg_no =''
         OR pas.pa_week is null or pas.pa_week=''
-        OR ao.anc_result is null or ao.anc_result=''
         OR pa.last_update is null or pa.last_update='')";
         
        $data = Yii::$app->db2->createCommand($sql)->queryAll();
