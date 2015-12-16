@@ -95,8 +95,8 @@ material\MaterialAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; DB-CHECK 2016 : โรงพยาบาลเกาะยาวชัยพัฒน์ จ.พังงา <?= date('Y') ?></p>
-        <p class="pull-right">Powered by <?= Html::a('iT-team Kohyao', ['site/about']) ?></p>
+        <p class="pull-left">&copy; DB-CHECK 2016 : 'งานสารสนเทศ โรงพยาบาลเกาะยาวชัยพัฒน์ จ.พังงา <?= date('Y') ?></p>
+        <p class="pull-right">Powered by <?= Html::a('Wichian Nunsri', ['site/about']) ?></p>
     </div>
 </footer>
 <?php $this->endBody() ?>
