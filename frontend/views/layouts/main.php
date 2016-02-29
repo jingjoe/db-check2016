@@ -39,7 +39,7 @@ material\MaterialAsset::register($this);
             'class' => 'navbar-fixed-top navbar-custom',
         ],
     ]);
-    
+
           if (Yii::$app->user->isGuest) {
                 $submenuItems[] = ['label' => 'สมัครผู้ใช้', 'url' => ['/site/signup']];
                 $submenuItems[] = ['label' => 'เข้าสู่ระบบ', 'url' => ['/site/login']];
@@ -51,7 +51,7 @@ material\MaterialAsset::register($this);
                     'linkOptions' => ['data-method' => 'post']
                 ];
             }
-            
+
            $username = '';
             if (!Yii::$app->user->isGuest) {
                 $username = '(' . Html::encode(Yii::$app->user->identity->username) . ')';
@@ -59,9 +59,13 @@ material\MaterialAsset::register($this);
 
 
             $menuItems = [
-                ['label' => 
+                ['label' =>
                     '<span class="glyphicon glyphicon-home"></span> หน้าหลัก',
                     'url' => ['/site/index']
+                ],
+                ['label' =>
+                    '<span class="glyphicon glyphicon-check"></span> ตรวจสอบข้อมูลบริการ',
+                    'url' => ['check/index']
                 ],
                 ['label' =>
                     '<span class="glyphicon glyphicon-check"></span> ตรวจสอบ 43 แฟ้ม',
@@ -74,8 +78,8 @@ material\MaterialAsset::register($this);
                 ['label' => '<span class="glyphicon glyphicon-user"></span> ผู้ใช้งาน ' . $username,
                     'items' => $submenuItems
                 ],
-            ];      
-            
+            ];
+
           echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'encodeLabels' => false,
