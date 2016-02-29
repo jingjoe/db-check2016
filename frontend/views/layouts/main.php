@@ -64,7 +64,7 @@ material\MaterialAsset::register($this);
                     'url' => ['/site/index']
                 ],
                 ['label' =>
-                    '<span class="glyphicon glyphicon-check"></span> ตรวจสอบข้อมูลบริการ',
+                    '<span class="glyphicon glyphicon-check"></span> ตรวจสอบข้อมูล',
                     'url' => ['check/index']
                 ],
                 ['label' =>
@@ -99,8 +99,8 @@ material\MaterialAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; DB-CHECK 2016 : 'งานสารสนเทศ โรงพยาบาลเกาะยาวชัยพัฒน์ จ.พังงา <?= date('Y') ?></p>
-        <p class="pull-right">Powered by <?= Html::a('Wichian Nunsri', ['site/about']) ?></p>
+        <p class="pull-left">&copy; DB-CHECK 2016 : งานสารสนเทศ โรงพยาบาลเกาะยาวชัยพัฒน์ จ.พังงา <?= date('Y') ?></p>
+        <p class="pull-right">Developed By <?= Html::a('wichian nunsri', ['site/about']) ?></p>
     </div>
 </footer>
 <?php $this->endBody() ?>

@@ -1,5 +1,4 @@
 <?php
-
 namespace frontend\controllers;
 
 use yii\web\Controller;
@@ -66,12 +65,24 @@ class CheckController extends Controller {
             'chart9' => $chart9]);
     }
     public function actionDetail1() {
-            $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
+        $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
         if ($role == 99) {
             throw new \yii\web\ConflictHttpException('คุณไม่ได้รับอนุญาติให้เข้าใช้งานส่วนนี้ กรุณาติดต่อผู้ดูแลระบบ !');
         }
-        return $this->render('detail1');
+        
+        $sql_detail1 = "SELECT v.hn,CONCAT(p.pname,p.fname,p.lname) AS full_name,v.vstdate,v.pdx
+                        FROM vn_stat v 
+                        LEFT OUTER JOIN patient p ON p.hn=v.hn
+                        WHERE v.vstdate  BETWEEN '2015-10-01' AND DATE(NOW())AND (v.pdx='' OR v.pdx IS NULL)";
+        $data1 = Yii::$app->db2->createCommand($sql_detail1)->queryAll();
+
+        $dataProvider = new ArrayDataProvider([
+            'allModels'=>$data1,
+        ]);
+
+        return $this->render('detail1', ['dataProvider' => $dataProvider]);
     }
+    
     public function actionDetail2() {
             $role = isset(Yii::$app->user->identity->role) ? Yii::$app->user->identity->role : 99;
         if ($role == 99) {

@@ -26,6 +26,7 @@
         "2amigos/yii2-google-maps-library": "*",
         "miloschuman/yii2-highcharts-widget": "dev-master",
         "kartik-v/yii2-detail-view": "*",
+        "bluezed/yii2-scroll-top": "*",
         "kongoon/yii2-theme-material": "*"
     },
     "require-dev": {

@@ -2,17 +2,14 @@
 
 use miloschuman\highcharts\Highcharts;
 use yii\web\JsExpression;
-use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use yii\jui\DatePicker;
 use yii\data\Pagination;
 
 /* @var $this yii\web\View */
-$this->title = 'ตรวจสอบข้อมูลบริการ';
-$this->params['breadcrumbs'][] = 'ตรวจสอบข้อมูลบริการ';
+$this->title = 'ตรวจสอบข้อมูลบริการและข้อมูลพื้นฐาน';
+$this->params['breadcrumbs'][] = 'ตรวจสอบข้อมูลบริการและข้อมูลพื้นฐาน';
 ?>
-
 
 <div style='display: none'>
     <?=
@@ -26,6 +23,7 @@ $this->params['breadcrumbs'][] = 'ตรวจสอบข้อมูลบร�
     ]);
     ?>
 </div>
+
 <?php
 //$webroot = Yii::$app->request->BaseUrl;
 $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
@@ -34,7 +32,6 @@ $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAs
 <div class="panel panel-default">
     <div class="panel-heading"> <h3 class="panel-title"><span class="glyphicon glyphicon-warning-sign"></span> Data Warning On HOSxP</h3> </div>
     <div class="panel-body">
-        <!--row1 -->
         <div class="row">
             <!-- col1--->
             <div class="col-md-4" style="text-align: center;">
@@ -53,7 +50,7 @@ $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAs
                 <div id="chart1" style="width: 300px; height: 200px; float: left"></div>
                 <div class="form-group">
                     <div class="col-sm-10">
-                        <?= Html::a('ดูรายละเอียด', ['/check/detail1'], ['class'=>'btn btn-info btn-xs']) ?>
+                        <?= Html::a('ดูรายละเอียด', ['/check/detail1'], ['class' => 'btn btn-info btn-xs']) ?>                      
                     </div>
                 </div>
             </div>
@@ -66,8 +63,6 @@ $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAs
                 }
                 $js_cc2 = implode(",", $data2);
 
-
-
                 $this->registerJs("
                                 var obj_div=$('#chart2');
                                 gen_donut(obj_div,'ไม่ลงผลวินิจฉัย IPD',$js_cc2);
@@ -76,7 +71,7 @@ $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAs
                 <div id="chart2" style="width: 300px; height: 200px; float: left"></div>
                 <div class="form-group">
                     <div class="col-sm-10">
-                        <?= Html::a('ดูรายละเอียด', ['/check/detail2'], ['class'=>'btn btn-info btn-xs']) ?>
+                        <?= Html::a('ดูรายละเอียด', ['/check/detail2'], ['class' => 'btn btn-info btn-xs']) ?>
                     </div>
                 </div>
             </div>
@@ -97,7 +92,7 @@ $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAs
                 <div id="chart3" style="width: 300px; height: 200px; float: left"></div>
                 <div class="form-group">
                     <div class="col-sm-10">
-                        <?= Html::a('ดูรายละเอียด', ['/check/detail3'], ['class'=>'btn btn-info btn-xs']) ?>
+                        <?= Html::a('ดูรายละเอียด', ['/check/detail3'], ['class' => 'btn btn-info btn-xs']) ?>
                     </div>
                 </div>
             </div>
@@ -123,7 +118,7 @@ $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAs
                 <div id="chart4" style="width: 300px; height: 200px; float: left"></div>
                 <div class="form-group">
                     <div class="col-sm-10">
-                        <?= Html::a('ดูรายละเอียด', ['/check/detail4'], ['class'=>'btn btn-info btn-xs']) ?>
+                        <?= Html::a('ดูรายละเอียด', ['/check/detail4'], ['class' => 'btn btn-info btn-xs']) ?>
                     </div>
                 </div>
             </div>
@@ -144,7 +139,7 @@ $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAs
                 <div id="chart5" style="width: 300px; height: 200px; float: left"></div>
                 <div class="form-group">
                     <div class="col-sm-10">
-                        <?= Html::a('ดูรายละเอียด', ['/check/detail5'], ['class'=>'btn btn-info btn-xs']) ?>
+                        <?= Html::a('ดูรายละเอียด', ['/check/detail5'], ['class' => 'btn btn-info btn-xs']) ?>
                     </div>
                 </div>
             </div>
@@ -165,7 +160,7 @@ $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAs
                 <div id="chart6" style="width: 300px; height: 200px; float: left"></div>
                 <div class="form-group">
                     <div class="col-sm-10">
-                        <?= Html::a('ดูรายละเอียด', ['/check/detail6'], ['class'=>'btn btn-info btn-xs']) ?>
+                        <?= Html::a('ดูรายละเอียด', ['/check/detail6'], ['class' => 'btn btn-info btn-xs']) ?>
                     </div>
                 </div>
             </div>
@@ -190,7 +185,7 @@ $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAs
 
                 <div class="form-group">
                     <div class="col-sm-10">
-                        <?= Html::a('ดูรายละเอียด', ['/check/detail7'], ['class'=>'btn btn-info btn-xs']) ?>
+                        <?= Html::a('ดูรายละเอียด', ['/check/detail7'], ['class' => 'btn btn-info btn-xs']) ?>
                     </div>
                 </div>
             </div>
@@ -211,7 +206,7 @@ $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAs
                 <div id="chart8" style="width: 300px; height: 200px; float: left"></div>
                 <div class="form-group">
                     <div class="col-sm-10">
-                        <?= Html::a('ดูรายละเอียด', ['/check/detail8'], ['class'=>'btn btn-info btn-xs']) ?>
+                        <?= Html::a('ดูรายละเอียด', ['/check/detail8'], ['class' => 'btn btn-info btn-xs']) ?>
                     </div>
                 </div>
             </div>
@@ -232,21 +227,22 @@ $this->registerJsFile('@web/js/chart-donut.js', ['depends' => [\yii\web\JqueryAs
                 <div id="chart9" style="width: 300px; height: 200px; float: left"></div>
                 <div class="form-group">
                     <div class="col-sm-10">
-                        <?= Html::a('ดูรายละเอียด', ['/check/detail9'], ['class'=>'btn btn-info btn-xs']) ?>
+                        <?= Html::a('ดูรายละเอียด', ['/check/detail9'], ['class' => 'btn btn-info btn-xs']) ?>
                     </div>
                 </div>
             </div>
 
-        </div>
+        </div>       
     </div>
 </div>
-    <?php
-    $pagination = new Pagination([
-        'totalCount' => 3,
-        'pageSize' => 2
-    ]);
+<!-- pagination -->
+<?php
+$pagination = new Pagination([
+    'totalCount' => 3,
+    'pageSize' => 2
+        ]);
 
-    echo \yii\widgets\LinkPager::widget([
-        'pagination' => $pagination,
-    ]);
-    ?>
+echo \yii\widgets\LinkPager::widget([
+    'pagination' => $pagination,
+]);
+?>
